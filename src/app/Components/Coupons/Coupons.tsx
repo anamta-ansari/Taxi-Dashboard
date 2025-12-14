@@ -1,0 +1,308 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Button } from '../ui/Button';
+import { ChevronDown } from 'lucide-react';
+
+interface Coupon {
+    id: string;
+    title: string;
+    code: string;
+    type: string;
+    amount: string;
+    status: boolean;
+    createdAt: string;
+}
+
+// Initial dummy data
+const initialData: Coupon[] = [
+    {
+        id: '1',
+        title: 'DISCOUNT OFFER',
+        code: 'SAVE10',
+        type: 'Percentage',
+        amount: '10.00%',
+        status: true,
+        createdAt: '2025-01-23 11:19:21 AM'
+    },
+    {
+        id: '2',
+        title: 'SUMMER SALE',
+        code: 'SUMMER20',
+        type: 'Percentage',
+        amount: '20.00%',
+        status: true,
+        createdAt: '2025-01-23 11:20:00 AM'
+    },
+    {
+        id: '3',
+        title: 'WINTER DEAL',
+        code: 'WINTER15',
+        type: 'Percentage',
+        amount: '15.00%',
+        status: false,
+        createdAt: '2025-01-23 11:20:36 AM'
+    },
+    {
+        id: '4',
+        title: 'FLASH SALE',
+        code: 'FLASH50',
+        type: 'Fixed Amount',
+        amount: '$50.00',
+        status: true,
+        createdAt: '2025-01-23 11:21:29 AM'
+    },
+    {
+        id: '5',
+        title: 'FIRST ORDER',
+        code: 'FIRST25',
+        type: 'Percentage',
+        amount: '25.00%',
+        status: true,
+        createdAt: '2025-01-23 11:22:04 AM'
+    },
+];
+
+export default function Coupons() {
+    const router = useRouter();
+    const [coupons, setCoupons] = useState<Coupon[]>(initialData);
+    const [loading, setLoading] = useState(true);
+
+    // Load data from localStorage
+    const loadData = () => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem('coupons');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    setCoupons(parsed);
+                } catch (error) {
+                    console.log('Error parsing data, using dummy data');
+                    setCoupons(initialData);
+                }
+            } else {
+                // No saved data, use initial dummy data
+                setCoupons(initialData);
+            }
+        }
+        setLoading(false);
+    };
+
+    // Initial load
+    useEffect(() => {
+        loadData();
+
+        // Listen for storage changes
+        const handleStorageChange = () => {
+            loadData();
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+        window.addEventListener('localStorageUpdate', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+            window.removeEventListener('localStorageUpdate', handleStorageChange);
+        };
+    }, []);
+
+    // Delete coupon
+    const handleDelete = (id: string) => {
+        if (confirm('Are you sure you want to delete this coupon?')) {
+            const updated = coupons.filter(item => item.id !== id);
+            localStorage.setItem('coupons', JSON.stringify(updated));
+            setCoupons(updated);
+            window.dispatchEvent(new Event('localStorageUpdate'));
+        }
+    };
+
+    // Toggle status
+    const handleToggleStatus = (id: string) => {
+        const updated = coupons.map(item =>
+            item.id === id ? { ...item, status: !item.status } : item
+        );
+        localStorage.setItem('coupons', JSON.stringify(updated));
+        setCoupons(updated);
+        window.dispatchEvent(new Event('localStorageUpdate'));
+    };
+
+    // Navigate to edit page
+    const handleEdit = (id: string) => {
+        router.push(`/coupons/edit/${id}`);
+    };
+
+    // Count active items
+    const activeCount = coupons.filter(item => item.status).length;
+    const inactiveCount = coupons.filter(item => !item.status).length;
+
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-gray-50 p-8 flex items-center justify-center">
+                <div className="text-gray-600">Loading...</div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="min-h-screen bg-gray-50 p-8">
+            <div className="max-w-7xl mx-auto">
+                {/* HEADER */}
+                <div className="mb-6">
+                    <div className="mb-4 flex justify-between items-center">
+                        <h1 className="text-[28px] font-bold text-gray-800">Coupons</h1>
+                        <Button
+                            onClick={() => router.push('/Coupons/create')}
+                            className="flex items-center gap-1 font-normal"
+                        >
+                            <span>+</span> Add New
+                        </Button>
+                    </div>
+
+                    {/* Tabs */}
+                    <div className="flex gap-4 text-sm border-b">
+                        <button className="pb-2 border-b-2 border-blue-600 text-blue-600 font-medium">
+                            All ({coupons.length})
+                        </button>
+                        <button className="pb-2 text-gray-600 hover:text-gray-800">
+                            Active ({activeCount})
+                        </button>
+                        <button className="pb-2 text-gray-600 hover:text-gray-800">
+                            Inactive ({inactiveCount})
+                        </button>
+                    </div>
+                </div>
+
+                {/* TABLE */}
+                <div className="bg-white rounded-lg shadow">
+                    {/* Table Controls */}
+                    <div className="flex flex-col sm:flex-row items-center gap-4 px-4 py-3 border-b">
+                        <div className="flex items-center gap-3">
+                            {/* Pagination Select */}
+                            <select className="border rounded px-2 py-2 text-sm appearance-none bg-white">
+                                <option>15</option>
+                                <option>25</option>
+                                <option>50</option>
+                            </select>
+
+                            {/* Bulk Actions Select */}
+                            <div className="relative">
+                                <select className="border rounded px-2 py-2 text-sm appearance-none bg-white pr-8">
+                                    <option>Bulk actions</option>
+                                    <option>Activate</option>
+                                    <option>Deactivate</option>
+                                    <option>Delete</option>
+                                </select>
+                                <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                            </div>
+
+                            <button className="bg-blue-500 text-white px-3 py-2 rounded text-sm hover:bg-blue-600 transition-colors">
+                                Apply
+                            </button>
+                        </div>
+
+                        <div className=" sm:ml-auto flex items-center gap-1">
+                            <input
+                                type="search"
+                                placeholder="Search"
+                                className="border rounded px-2 py-2 text-sm"
+                            />
+                            <button className="px-2 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* TABLE BODY */}
+                    <div className="overflow-x-auto">
+                        <table className="w-full">
+                            <thead className="bg-gray-50 border-b">
+                                <tr>
+                                    <th className="px-4 py-3 text-left">
+                                        <input type="checkbox" className="rounded" />
+                                    </th>
+                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Title</th>
+                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Code</th>
+                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Type</th>
+                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Amount</th>
+                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Status</th>
+                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Created At</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {coupons.length === 0 ? (
+                                    <tr>
+                                        <td colSpan={7} className="px-4 py-8 text-center text-gray-500">
+                                            No coupons found. Click "Add New" to create one.
+                                        </td>
+                                    </tr>
+                                ) : (
+                                    coupons.map((item) => (
+                                        <tr key={item.id} className="border-b hover:bg-gray-50">
+                                            <td className="px-4 py-3">
+                                                <input type="checkbox" className="rounded" />
+                                            </td>
+
+                                            <td className="px-4 py-3">
+                                                <div className="flex items-center gap-3">
+                                                    <div>
+                                                        <div className="text-gray-900 font-medium">{item.title}</div>
+                                                        <div className="flex gap-2 text-sm mt-1">
+                                                            <button
+                                                                onClick={() => handleEdit(item.id)}
+                                                                className="text-blue-600 text-xs hover:underline"
+                                                            >
+                                                                Edit
+                                                            </button>
+                                                            <span className="text-gray-400">|</span>
+                                                            <button
+                                                                onClick={() => handleDelete(item.id)}
+                                                                className="text-red-600 text-xs hover:underline"
+                                                            >
+                                                                Move To Trash
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td className="px-4 py-3 text-gray-700">{item.code}</td>
+                                            <td className="px-4 py-3 text-gray-700">{item.type}</td>
+                                            <td className="px-4 py-3 text-gray-700">{item.amount}</td>
+
+                                            {/* Status Toggle */}
+                                            <td className="px-4 py-3">
+                                                <button
+                                                    onClick={() => handleToggleStatus(item.id)}
+                                                    className={`w-10 h-5 rounded-full flex items-center transition-all duration-200 ${
+                                                        item.status ? 'bg-blue-500' : 'bg-gray-400'
+                                                    }`}
+                                                >
+                                                    <span
+                                                        className={`w-4 h-4 bg-white rounded-full shadow transform transition-transform duration-200 ${
+                                                            item.status ? 'translate-x-5' : 'translate-x-1'
+                                                        }`}
+                                                    ></span>
+                                                </button>
+                                            </td>
+
+                                            <td className="px-4 py-3 text-gray-700 text-sm">{item.createdAt}</td>
+                                        </tr>
+                                    ))
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* Footer */}
+                    <div className="flex justify-between items-center px-4 py-3 border-t">
+                        <div className="text-sm text-gray-600">
+                            {coupons.length} {coupons.length === 1 ? 'Item' : 'Items'}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
