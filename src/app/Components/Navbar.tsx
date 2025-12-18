@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { Menu, X, ChevronDown, CarFront, ReceiptText, Send, Tag } from "lucide-react";
+import { Menu, X, ChevronDown, CarFront, ReceiptText, Send, Tag, CalendarCheck, Bell } from "lucide-react";
 import UserDropdown from "./UserDropdown";
 import { ThemeToggleButton } from "./ThemeToggleButton";
 import { usePathname } from "next/navigation";
@@ -21,7 +21,8 @@ import {
   Settings2,
   Car,
   Map,
-  LandPlot
+  LandPlot,
+
 } from "lucide-react";
 
 import {  FiSettings } from "react-icons/fi";
@@ -80,10 +81,19 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
 
   },
   { title: "Surge Price", url: "/surge-price", icon: Tag },
+ {
+    title: "Book trip",
+    dropdown: true,
+    icon: CalendarCheck,
+    children: [
+      { title: "Booking", url: "/book-trip" },
+      { title: "Booking History", url: "/book-trip/history" },
+    ],
+  },
   {
     title: "Push Notification",
     dropdown: true,
-    icon: Send,
+    icon: Bell,
     children: [
       { title: "All Push Notification", url: "/push-notification" },
       { title: "Send Push Notification", url: "/push-notification/create" },

@@ -51,7 +51,7 @@ export default function RootLayout({
             )}
 
             {/* -------- MAIN PAGE -------- */}
-            <main className="flex-1 min-w-0 py-8 px-2 overflow-x-hidden ">
+            <main className="flex-1 min-w-0  px-2 overflow-x-hidden ">
               <div className="">
                 {children}
               </div>

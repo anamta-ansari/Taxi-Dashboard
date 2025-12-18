@@ -35,7 +35,10 @@ import {
   Tag,
   ReceiptText,
   Send,
-  CarFront
+  CarFront,
+  Bell,
+  CalendarCheck,
+
 } from "lucide-react";
 
 import { FiChevronDown, FiSettings } from "react-icons/fi";
@@ -87,9 +90,18 @@ const items = [
   },
   { title: "Surge Price", url: "/surge-price", icon: Tag },
   {
+    title: "Book trip",
+    dropdown: true,
+    icon: CalendarCheck,
+    children: [
+      { title: "Booking", url: "/book-trip" },
+      { title: "Booking History", url: "/book-trip/history" },
+    ],
+  },
+  {
     title: "Push Notification",
     dropdown: true,
-    icon: Send,
+    icon: Bell,
     children: [
       { title: "All Push Notification", url: "/push-notification" },
       { title: "Send Push Notification", url: "/push-notification/create" },
@@ -160,7 +172,7 @@ export function AppSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar className="lg:fixed lg:top-20 lg:left-0 lg:h-[calc(100vh-5rem)] lg:w-65 w-full bg-white dark:bg-black shadow-none lg:shadow ">
+    <Sidebar className="lg:fixed lg:top-20 lg:left-0 lg:h-[calc(100vh-5rem)] lg:w-65 w-full bg-blue-950 dark:bg-black shadow-none lg:shadow ">
       <SidebarHeader />
 
       <SidebarContent>

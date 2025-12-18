@@ -1,5 +1,5 @@
 import CouponsCreateComponent from "../../Components/Coupons/CouponsCreate"
-export default function Preference(){
+export default function Couponscreate(){
     return(
         <>
         <CouponsCreateComponent/>

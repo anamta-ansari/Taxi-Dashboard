@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { ArrowRight, Car, ClipboardCheck, User } from "lucide-react";
+import { ArrowRight, Car, ClipboardCheck, User, Map, Menu, SquareMenu, CircleUser, UserRoundCheck, UserRoundX, Users, X, Ban, StepBack, Route, Backpack, BaggageClaim } from "lucide-react";
 import OrdersTable from "./Components/OrdersTable";
 import ActivityList from "./Components/ActivityList";
 
@@ -31,500 +31,496 @@ export default function Home() {
   ];
 
   return (
-    <main className="dark:bg-black pl-2">
-      <h1 className="text-[32px] font-bold -mt-5">Home</h1>
-      <p className="text-[16px] mt-5 mb-8"><span className="text-gray-500">Today is  </span> {formattedDate}</p>
+    <main className="dark:bg-black pl-2 bg-gray-50">
+      {/* <h1 className="text-[32px] font-bold -mt-5">Home</h1> */}
+      {/* <p className="text-[16px] pt-2 mb-8"><span className="text-gray-500">Today is  </span> {formattedDate}</p> */}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-1">
-        {/* 1st - Total Orders */}
-        <div className="bg-white dark:bg-black rounded-2xl shadow-sm border px-3 sm:px-4 py-3 h-[100px] sm:h-[110px]">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="text-gray-700 text-sm font-medium dark:text-white">Total Orders</h3>
-            <button className="text-gray-500 text-xs hover:text-blue-600 transition-colors dark:text-white">See More</button>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="bg-blue-100 rounded-full p-2.5">
-              <Car className="w-5 h-5 text-blue-600" />
-            </div>
-            <span className="text-2xl sm:text-3xl font-semibold text-gray-800 leading-none dark:text-white">46024</span>
-          </div>
-        </div>
 
-        {/* 2nd - Total Revenue */}
-        <div className="bg-white dark:bg-black rounded-2xl shadow-sm border px-3 sm:px-4 py-3 h-[100px] sm:h-[110px]">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="text-gray-700 text-sm font-medium dark:text-white">Total Revenue</h3>
-            <button className="text-gray-500 text-xs hover:text-blue-600 transition-colors dark:text-white">See More</button>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="bg-green-100 rounded-full p-2.5">
-              <Car className="w-5 h-5 text-green-600 " />
-            </div>
-            <span className="text-2xl sm:text-3xl font-semibold text-gray-800 leading-none dark:text-white">46024</span>
-          </div>
-        </div>
 
-        {/* 3rd - Active Drivers */}
-        <div className="bg-white dark:bg-black rounded-2xl shadow-sm border px-3 sm:px-4 py-3 h-[100px] sm:h-[110px]">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="text-gray-700 text-sm font-medium dark:text-white">Active Drivers</h3>
-            <button className="text-gray-500 text-xs hover:text-blue-600 transition-colors dark:text-white">See More</button>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="bg-purple-100 rounded-full p-2.5">
-              <Car className="w-5 h-5 text-purple-600" />
-            </div>
-            <span className="text-2xl sm:text-3xl font-semibold text-gray-800 leading-none dark:text-white">46024</span>
-          </div>
-        </div>
+      {/* ================================first row start here================================================ */}
+      <div className="flex flex-col pt-5">
+        <h1 className="text-[20px] font-bold pl-5">General</h1>
+        <div className="mt-5 grid grid-cols-1 md:grid-cols-4 gap-2 ">
+          {/* card 1 =================================================*/}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
 
-        {/* 4th - Active Customers */}
-        <div className="bg-white dark:bg-black  rounded-2xl shadow-sm border px-3 sm:px-4 py-3 h-[100px] sm:h-[110px]">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="text-gray-700 text-sm font-medium dark:text-white">Active Customers</h3>
-            <button className="text-gray-500 text-xs hover:text-blue-600 transition-colors dark:text-white">See More</button>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="bg-orange-100 rounded-full p-2.5">
-              <Car className="w-5 h-5 text-orange-600" />
+            {/* Content */}
+            <div>
+              <p className="text-indigo-600 bg-indigo-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Total Ride.
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
             </div>
-            <span className="text-2xl sm:text-3xl font-semibold text-gray-800 leading-none dark:text-white">46024</span>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-indigo-600  rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-indigo-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+              <Car className="w-5 h-5 text-white relative z-10" />
+            </div>
+          </div>
+
+          {/* card 2 ===================================================================*/}
+          <div className=" bg-white h-35  rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
+
+            {/* Content */}
+            <div>
+              <p className="text-cyan-600 bg-cyan-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Total Service Zone
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
+            </div>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-cyan-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-cyan-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+              <Map className="w-5 h-5 text-white relative z-10" />
+            </div>
+          </div>
+
+          {/* card 3 =======================================================*/}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
+
+            {/* Content */}
+            <div>
+              <p className="text-amber-600 bg-amber-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Total Vehicle
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
+            </div>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-amber-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+              <Menu className="w-5 h-5 text-white relative z-10" />
+            </div>
+          </div>
+
+          {/* card 4 */}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
+
+            {/* Content */}
+            <div>
+              <p className="text-teal-600 bg-teal-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Total Payment Method
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
+            </div>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-teal-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+
+              <SquareMenu className="w-5 h-5 text-white relative z-10" />
+            </div>
           </div>
         </div>
       </div>
+      {/* ================================first row ends here================================================ */}
 
-      {/* ========================= */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mt-5 ">
-        {/* 1st card */}
-        <div className="relative bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-6 overflow-hidden">
+      {/* =====================================second row start here================================================ */}
+      <div className="flex flex-col pt-5">
+        <h1 className="text-[20px] font-bold pl-5">Driver</h1>
+        <div className="mt-5 grid grid-cols-1 md:grid-cols-4 gap-2 ">
+          {/* card 1 */}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
 
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{
-              backgroundImage: "url('/assets/unnamed.jpg')", // MUST be inside public/assets/
-            }}
-          ></div>
+            {/* Content */}
+            <div>
+              <p className="text-indigo-600 bg-indigo-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Total Driver
+              </p>
 
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
-
-          <div className="relative z-10">
-
-            <div className="flex items-center gap-4 mb-6">
-
-              <div className="w-14 h-14 rounded bg-gradient-to-br from-blue-100 to-white flex items-center justify-center shadow-md">
-                <ClipboardCheck className="w-8 h-8 text-blue-600" strokeWidth={2} />
-              </div>
-
-              <div>
-                <h3 className="text-gray-600 text-lg font-medium">Accepted Rides</h3>
-                <p className="text-4xl font-bold text-gray-900">9</p>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
             </div>
 
-            <button className="w-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 hover:from-blue-200 hover:via-blue-300 hover:to-blue-200 text-blue-700 font-semibold py-3 px-6 rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-md">
-              See Details
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-indigo-600  rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-indigo-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
 
+              <User className="w-5 h-5 text-white relative z-10" />
+            </div>
           </div>
-        </div>
-        {/* 2nd card */}
-        <div className="relative bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-6 overflow-hidden">
 
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{
-              backgroundImage: "url('/assets/unnamed.jpg')", // MUST be inside public/assets/
-            }}
-          ></div>
+          {/* card 2 */}
+          <div className=" bg-white h-35  rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
 
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+            {/* Content */}
+            <div>
+              <p className="text-cyan-600 bg-cyan-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Active Driver
+              </p>
 
-          <div className="relative z-10">
-
-            <div className="flex items-center gap-4 mb-6">
-
-              <div className="w-14 h-14 rounded bg-gradient-to-br from-blue-100 to-white flex items-center justify-center shadow-md">
-                <ClipboardCheck className="w-8 h-8 text-blue-600" strokeWidth={2} />
-              </div>
-
-              <div>
-                <h3 className="text-gray-600 text-lg font-medium">Accepted Rides</h3>
-                <p className="text-4xl font-bold text-gray-900">9</p>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
             </div>
 
-            <button className="w-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 hover:from-blue-200 hover:via-blue-300 hover:to-blue-200 text-blue-700 font-semibold py-3 px-6 rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-md">
-              See Details
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-cyan-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-cyan-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
 
+              <CircleUser className="w-5 h-5 text-white relative z-10" />
+            </div>
           </div>
-        </div>
-        {/* 3rd card  */}
-        <div className="relative bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-6 overflow-hidden">
 
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{
-              backgroundImage: "url('/assets/unnamed.jpg')", // MUST be inside public/assets/
-            }}
-          ></div>
+          {/* card 3 */}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
 
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+            {/* Content */}
+            <div>
+              <p className="text-amber-600 bg-amber-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Verified Driver
+              </p>
 
-          <div className="relative z-10">
-
-            <div className="flex items-center gap-4 mb-6">
-
-              <div className="w-14 h-14 rounded bg-gradient-to-br from-blue-100 to-white flex items-center justify-center shadow-md">
-                <ClipboardCheck className="w-8 h-8 text-blue-600" strokeWidth={2} />
-              </div>
-
-              <div>
-                <h3 className="text-gray-600 text-lg font-medium">Accepted Rides</h3>
-                <p className="text-4xl font-bold text-gray-900">9</p>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
             </div>
 
-            <button className="w-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 hover:from-blue-200 hover:via-blue-300 hover:to-blue-200 text-blue-700 font-semibold py-3 px-6 rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-md">
-              See Details
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-amber-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
 
+
+              <UserRoundCheck className="w-5 h-5 text-white relative z-10" />
+            </div>
           </div>
-        </div>
-        {/* 4rthb card */}
-        <div className="relative bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-6 overflow-hidden">
 
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{
-              backgroundImage: "url('/assets/unnamed.jpg')", // MUST be inside public/assets/
-            }}
-          ></div>
+          {/* card 4 */}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
 
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+            {/* Content */}
+            <div>
+              <p className="text-teal-600 bg-teal-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Deactive Driver
+              </p>
 
-          <div className="relative z-10">
-
-            <div className="flex items-center gap-4 mb-6">
-
-              <div className="w-14 h-14 rounded bg-gradient-to-br from-blue-100 to-white flex items-center justify-center shadow-md">
-                <ClipboardCheck className="w-8 h-8 text-blue-600" strokeWidth={2} />
-              </div>
-
-              <div>
-                <h3 className="text-gray-600 text-lg font-medium">Accepted Rides</h3>
-                <p className="text-4xl font-bold text-gray-900">9</p>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
             </div>
 
-            <button className="w-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 hover:from-blue-200 hover:via-blue-300 hover:to-blue-200 text-blue-700 font-semibold py-3 px-6 rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-md">
-              See Details
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-teal-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
 
-          </div>
-        </div>
-        {/* 5th card */}
-        <div className="relative bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-6 overflow-hidden">
 
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{
-              backgroundImage: "url('/assets/unnamed.jpg')", // MUST be inside public/assets/
-            }}
-          ></div>
-
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
-
-          <div className="relative z-10">
-
-            <div className="flex items-center gap-4 mb-6">
-
-              <div className="w-14 h-14 rounded bg-gradient-to-br from-blue-100 to-white flex items-center justify-center shadow-md">
-                <ClipboardCheck className="w-8 h-8 text-blue-600" strokeWidth={2} />
-              </div>
-
-              <div>
-                <h3 className="text-gray-600 text-lg font-medium">Accepted Rides</h3>
-                <p className="text-4xl font-bold text-gray-900">9</p>
-              </div>
+              <UserRoundX className="w-5 h-5 text-white relative z-10" />
             </div>
-
-            <button className="w-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 hover:from-blue-200 hover:via-blue-300 hover:to-blue-200 text-blue-700 font-semibold py-3 px-6 rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-md">
-              See Details
-              <ArrowRight className="w-5 h-5" />
-            </button>
-
-          </div>
-        </div>
-        {/* 6th card */}
-        <div className="relative bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-6 overflow-hidden">
-
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{
-              backgroundImage: "url('/assets/unnamed.jpg')", // MUST be inside public/assets/
-            }}
-          ></div>
-
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
-
-          <div className="relative z-10">
-
-            <div className="flex items-center gap-4 mb-6">
-
-              <div className="w-14 h-14 rounded bg-gradient-to-br from-blue-100 to-white flex items-center justify-center shadow-md">
-                <ClipboardCheck className="w-8 h-8 text-blue-600" strokeWidth={2} />
-              </div>
-
-              <div>
-                <h3 className="text-gray-600 text-lg font-medium">Accepted Rides</h3>
-                <p className="text-4xl font-bold text-gray-900">9</p>
-              </div>
-            </div>
-
-            <button className="w-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 hover:from-blue-200 hover:via-blue-300 hover:to-blue-200 text-blue-700 font-semibold py-3 px-6 rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-md">
-              See Details
-              <ArrowRight className="w-5 h-5" />
-            </button>
-
-          </div>
-        </div>
-        {/* 7th card  */}
-        <div className="relative bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-6 overflow-hidden">
-
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{
-              backgroundImage: "url('/assets/unnamed.jpg')", // MUST be inside public/assets/
-            }}
-          ></div>
-
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
-
-          <div className="relative z-10">
-
-            <div className="flex items-center gap-4 mb-6">
-
-              <div className="w-14 h-14 rounded bg-gradient-to-br from-blue-100 to-white flex items-center justify-center shadow-md">
-                <ClipboardCheck className="w-8 h-8 text-blue-600" strokeWidth={2} />
-              </div>
-
-              <div>
-                <h3 className="text-gray-600 text-lg font-medium">Accepted Rides</h3>
-                <p className="text-4xl font-bold text-gray-900">9</p>
-              </div>
-            </div>
-
-            <button className="w-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 hover:from-blue-200 hover:via-blue-300 hover:to-blue-200 text-blue-700 font-semibold py-3 px-6 rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-md">
-              See Details
-              <ArrowRight className="w-5 h-5" />
-            </button>
-
-          </div>
-        </div>
-        {/* 8th card */}
-        <div className="relative bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-6 overflow-hidden">
-
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{
-              backgroundImage: "url('/assets/unnamed.jpg')", // MUST be inside public/assets/
-            }}
-          ></div>
-
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
-
-          <div className="relative z-10">
-
-            <div className="flex items-center gap-4 mb-6">
-
-              <div className="w-14 h-14 rounded bg-gradient-to-br from-blue-100 to-white flex items-center justify-center shadow-md">
-                <ClipboardCheck className="w-8 h-8 text-blue-600" strokeWidth={2} />
-              </div>
-
-              <div>
-                <h3 className="text-gray-600 text-lg font-medium">Accepted Rides</h3>
-                <p className="text-4xl font-bold text-gray-900">9</p>
-              </div>
-            </div>
-
-            <button className="w-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 hover:from-blue-200 hover:via-blue-300 hover:to-blue-200 text-blue-700 font-semibold py-3 px-6 rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-md">
-              See Details
-              <ArrowRight className="w-5 h-5" />
-            </button>
-
-          </div>
-        </div>
-        {/* 9th card */}
-        <div className="relative bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-6 overflow-hidden">
-
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{
-              backgroundImage: "url('/assets/unnamed.jpg')", // MUST be inside public/assets/
-            }}
-          ></div>
-
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
-
-          <div className="relative z-10">
-
-            <div className="flex items-center gap-4 mb-6">
-
-              <div className="w-14 h-14 rounded bg-gradient-to-br from-blue-100 to-white flex items-center justify-center shadow-md">
-                <ClipboardCheck className="w-8 h-8 text-blue-600" strokeWidth={2} />
-              </div>
-
-              <div>
-                <h3 className="text-gray-600 text-lg font-medium">Accepted Rides</h3>
-                <p className="text-4xl font-bold text-gray-900">9</p>
-              </div>
-            </div>
-
-            <button className="w-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 hover:from-blue-200 hover:via-blue-300 hover:to-blue-200 text-blue-700 font-semibold py-3 px-6 rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-md">
-              See Details
-              <ArrowRight className="w-5 h-5" />
-            </button>
-
           </div>
         </div>
       </div>
+      {/* ================================second row ends here================================================ */}
 
-      {/* ================================================================================ */}
-      <div className="mt-5 grid grid-cols-1 md:grid-cols-4 gap-2 bg-gray-50 pt-8">
-        {/* ======== */}
-        <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
-          <div
-            className=""
-            style={{ animationDelay: "1s" }}
-          ></div>
-
-          {/* Content */}
-          <div>
-            <p className="text-indigo-600 bg-indigo-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-              Total Ride.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900">167</h2>
-          </div>
-
-          {/* Icon touching bottom */}
-          <div className="absolute bottom-0 right-0 w-12 h-12 bg-indigo-600  rounded-full flex items-center justify-center shadow-lg">
-            {/* Ping border */}
+      {/* ======================================third row start here================================================ */}
+      <div className="flex flex-col pt-5">
+        <h1 className="text-[20px] font-bold pl-5">Customer</h1>
+        <div className="mt-5 grid grid-cols-1 md:grid-cols-4 gap-2 ">
+          {/* card 1 */}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
-              className="absolute inset-0 rounded-full border-20 border-indigo-300 animate-ping"
-              style={{ animationDuration: "2s" }}
+              className=""
+              style={{ animationDelay: "1s" }}
             ></div>
 
-            {/* Car icon */}
-            <Car className="w-7 h-7 text-white relative z-10" />
+            {/* Content */}
+            <div>
+              <p className="text-indigo-600 bg-indigo-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Total Customer
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
+            </div>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-indigo-600  rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-indigo-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+              <Users className="w-5 h-5 text-white relative z-10" />
+            </div>
           </div>
-        </div>
 
-        {/* == */}
-        <div className=" bg-white h-35  rounded-2xl p-4 relative overflow-hidden shadow-md">
-          <div
-            className=""
-            style={{ animationDelay: "1s" }}
-          ></div>
-
-          {/* Content */}
-          <div>
-            <p className="text-cyan-600 bg-cyan-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-              Total Ride.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900">167</h2>
-          </div>
-
-          {/* Icon touching bottom */}
-          <div className="absolute bottom-0 right-0 w-12 h-12 bg-cyan-600 rounded-full flex items-center justify-center shadow-lg">
-            {/* Ping border */}
+          {/* card 2 */}
+          <div className=" bg-white h-35  rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
-              className="absolute inset-0 rounded-full border-20 border-cyan-300 animate-ping"
-              style={{ animationDuration: "2s" }}
+              className=""
+              style={{ animationDelay: "1s" }}
             ></div>
 
-            {/* ClipboardCheck */}
-            <ClipboardCheck className="w-7 h-7 text-white relative z-10" />
+            {/* Content */}
+            <div>
+              <p className="text-cyan-600 bg-cyan-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Active Customer
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
+            </div>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-cyan-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-cyan-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+              <UserRoundCheck className="w-5 h-5 text-white relative z-10" />
+            </div>
           </div>
-        </div>
 
-        {/* == */}
-        <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
-          <div
-            className=""
-            style={{ animationDelay: "1s" }}
-          ></div>
-
-          {/* Content */}
-          <div>
-            <p className="text-amber-600 bg-amber-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-              Total Ride.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900">167</h2>
-          </div>
-
-          {/* Icon touching bottom */}
-          <div className="absolute bottom-0 right-0 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
-            {/* Ping border */}
+          {/* card 3 */}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
-              className="absolute inset-0 rounded-full border-20 border-amber-300 animate-ping"
-              style={{ animationDuration: "2s" }}
+              className=""
+              style={{ animationDelay: "1s" }}
             ></div>
 
-            {/* ClipboardCheck */}
-            <ClipboardCheck className="w-7 h-7 text-white relative z-10" />
+            {/* Content */}
+            <div>
+              <p className="text-amber-600 bg-amber-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Deactive Customer
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
+            </div>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-amber-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+              <UserRoundX className="w-5 h-5 text-white relative z-10" />
+            </div>
           </div>
-        </div>
 
-        {/* == */}
-        <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
-          <div
-            className=""
-            style={{ animationDelay: "1s" }}
-          ></div>
-
-          {/* Content */}
-          <div>
-            <p className="text-teal-600 bg-teal-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-              Total Ride.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900">167</h2>
-          </div>
-
-          {/* Icon touching bottom */}
-          <div className="absolute bottom-0 right-0 w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center shadow-lg">
-            {/* Ping border */}
+          {/* card 4 */}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
-              className="absolute inset-0 rounded-full border-20 border-teal-300 animate-ping"
-              style={{ animationDuration: "2s" }}
+              className=""
+              style={{ animationDelay: "1s" }}
             ></div>
 
-            {/* Car icon */}
-            <Car className="w-7 h-7 text-white relative z-10" />
+            {/* Content */}
+            <div>
+              <p className="text-teal-600 bg-teal-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Unverified Driver
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
+            </div>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-teal-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+
+              <X className="w-5 h-5 text-white relative z-10" />
+            </div>
           </div>
         </div>
       </div>
-      {/* ================================================================================ */}
+      {/* ================================third row ends here================================================ */}
 
 
-      {/* ========================== */}
+      {/* ================================fourth row start here================================================ */}
+      <div className="flex flex-col pt-5">
+        <h1 className="text-[20px] font-bold pl-5">Book services</h1>
+        <div className="mt-5 grid grid-cols-1 md:grid-cols-4 gap-2 ">
+          {/* card 1 */}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
+
+            {/* Content */}
+            <div>
+              <p className="text-indigo-600 bg-indigo-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Total Completed ride
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
+            </div>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-indigo-600  rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-indigo-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+
+              <Route className="w-5 h-5 text-white relative z-10" />
+            </div>
+          </div>
+
+          {/* card 2 */}
+          <div className=" bg-white h-35  rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
+
+            {/* Content */}
+            <div>
+              <p className="text-cyan-600 bg-cyan-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Total Start Ride
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
+            </div>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-cyan-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-cyan-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+
+              <Backpack className="w-5 h-5 text-white relative z-10" />
+            </div>
+          </div>
+
+          {/* card 3 */}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
+
+            {/* Content */}
+            <div>
+              <p className="text-amber-600 bg-amber-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Total End Ride.
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
+            </div>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-amber-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+
+              <BaggageClaim className="w-5 h-5 text-white relative z-10" />
+            </div>
+          </div>
+
+          {/* card 4 */}
+          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+            <div
+              className=""
+              style={{ animationDelay: "1s" }}
+            ></div>
+
+            {/* Content */}
+            <div>
+              <p className="text-teal-600 bg-teal-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
+                Total Cancel Ride.
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900">167</h2>
+            </div>
+
+            {/* Icon touching bottom */}
+            <div className="absolute bottom-0 right-0 w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center shadow-lg">
+              {/* Ping border */}
+              <div
+                className="absolute inset-0 rounded-full border-20 border-teal-300 animate-ping"
+                style={{ animationDuration: "2s" }}
+              ></div>
+
+
+              <Ban className="w-5 h-5 text-white relative z-10" />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* ================================fourth row ends here================================================ */}
 
 
       {/* online driver section start here */}
