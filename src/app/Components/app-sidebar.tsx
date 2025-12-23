@@ -120,16 +120,7 @@ const items = [
   { title: "Orders", url: "/orders", icon: BookOpenText },
   // { title: "Customers", url: "/customers", icon: CircleUser },
 
-  // {
-  //   title: "Marketing",
-  //   dropdown: true,
-  //   icon: ChartPie,
-  //   children: [
-  //     { title: "Coupons", url: "/marketing/coupons" },
-  //     { title: "Gift Cards", url: "/marketing/giftcards" },
-  //     { title: "Annoucements", url: "/marketing/annoucements" },
-  //   ],
-  // },
+
 
   {
     title: "Payout",
