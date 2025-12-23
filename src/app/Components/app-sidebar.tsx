@@ -38,6 +38,7 @@ import {
   CarFront,
   Bell,
   CalendarCheck,
+  Users,
 
 } from "lucide-react";
 
@@ -86,7 +87,15 @@ const items = [
     title: "Coupons",
     icon: ReceiptText,
     url: "/Coupons"
-
+  },
+    {
+    title: "Riders",
+    dropdown: true,
+    icon: Users,
+    children: [
+      { title: "All Riders", url: "/riders" },
+      { title: "Add Riders", url: "/riders/add-riders" },
+    ],
   },
   { title: "Surge Price", url: "/surge-price", icon: Tag },
   {
@@ -109,18 +118,18 @@ const items = [
   },
 
   { title: "Orders", url: "/orders", icon: BookOpenText },
-  { title: "Customers", url: "/customers", icon: CircleUser },
+  // { title: "Customers", url: "/customers", icon: CircleUser },
 
-  {
-    title: "Marketing",
-    dropdown: true,
-    icon: ChartPie,
-    children: [
-      { title: "Coupons", url: "/marketing/coupons" },
-      { title: "Gift Cards", url: "/marketing/giftcards" },
-      { title: "Annoucements", url: "/marketing/annoucements" },
-    ],
-  },
+  // {
+  //   title: "Marketing",
+  //   dropdown: true,
+  //   icon: ChartPie,
+  //   children: [
+  //     { title: "Coupons", url: "/marketing/coupons" },
+  //     { title: "Gift Cards", url: "/marketing/giftcards" },
+  //     { title: "Annoucements", url: "/marketing/annoucements" },
+  //   ],
+  // },
 
   {
     title: "Payout",
@@ -172,7 +181,7 @@ export function AppSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar className="lg:fixed lg:top-20 lg:left-0 lg:h-[calc(100vh-5rem)] lg:w-65 w-full bg-blue-950 dark:bg-black shadow-none lg:shadow ">
+    <Sidebar className="lg:fixed bg-white lg:top-20 lg:left-0 lg:h-[calc(100vh-5rem)] lg:w-65 w-full dark:bg-black shadow-none lg:shadow ">
       <SidebarHeader />
 
       <SidebarContent>
