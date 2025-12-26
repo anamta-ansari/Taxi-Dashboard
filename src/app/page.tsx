@@ -31,7 +31,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="dark:bg-black pl-2 bg-gray-50">
+    <main className="dark:bg-[#161c24]  pl-2 bg-gray-50">
       {/* <h1 className="text-[32px] font-bold -mt-5">Home</h1> */}
       {/* <p className="text-[16px] pt-2 mb-8"><span className="text-gray-500">Today is  </span> {formattedDate}</p> */}
 
@@ -42,7 +42,7 @@ export default function Home() {
         <h1 className="text-[20px] font-bold pl-5">General</h1>
         <div className="mt-5 grid grid-cols-1 md:grid-cols-4 gap-2 ">
           {/* card 1 =================================================*/}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white dark:bg-[#161c24] dark:border-gray-600 border h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -51,7 +51,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-indigo-600 bg-indigo-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Total Ride.
+                Total Rides.
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -70,7 +70,7 @@ export default function Home() {
           </div>
 
           {/* card 2 ===================================================================*/}
-          <div className=" bg-white h-35  rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -98,7 +98,7 @@ export default function Home() {
           </div>
 
           {/* card 3 =======================================================*/}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -107,7 +107,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-amber-600 bg-amber-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Total Vehicle
+                Total Vehicles
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -126,7 +126,7 @@ export default function Home() {
           </div>
 
           {/* card 4 */}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -135,7 +135,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-teal-600 bg-teal-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Total Payment Method
+                Total Payment Methods
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -159,10 +159,10 @@ export default function Home() {
 
       {/* =====================================second row start here================================================ */}
       <div className="flex flex-col pt-5">
-        <h1 className="text-[20px] font-bold pl-5">Driver</h1>
+        <h1 className="text-[20px] font-bold pl-5">Drivers</h1>
         <div className="mt-5 grid grid-cols-1 md:grid-cols-4 gap-2 ">
           {/* card 1 */}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -171,7 +171,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-indigo-600 bg-indigo-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Total Driver
+                Total Drivers
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -190,7 +190,7 @@ export default function Home() {
           </div>
 
           {/* card 2 */}
-          <div className=" bg-white h-35  rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border  rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -199,7 +199,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-cyan-600 bg-cyan-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Active Driver
+                Active Drivers
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -218,7 +218,7 @@ export default function Home() {
           </div>
 
           {/* card 3 */}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -227,7 +227,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-amber-600 bg-amber-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Verified Driver
+                Verified Drivers
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -247,7 +247,7 @@ export default function Home() {
           </div>
 
           {/* card 4 */}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -256,7 +256,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-teal-600 bg-teal-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Deactive Driver
+                Deactive Drivers
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -280,10 +280,10 @@ export default function Home() {
 
       {/* ======================================third row start here================================================ */}
       <div className="flex flex-col pt-5">
-        <h1 className="text-[20px] font-bold pl-5">Customer</h1>
+        <h1 className="text-[20px] font-bold pl-5">Customers</h1>
         <div className="mt-5 grid grid-cols-1 md:grid-cols-4 gap-2 ">
           {/* card 1 */}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -292,7 +292,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-indigo-600 bg-indigo-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Total Customer
+                Total Customers
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -311,7 +311,7 @@ export default function Home() {
           </div>
 
           {/* card 2 */}
-          <div className=" bg-white h-35  rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35  dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -320,7 +320,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-cyan-600 bg-cyan-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Active Customer
+                Active Customers
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -339,7 +339,7 @@ export default function Home() {
           </div>
 
           {/* card 3 */}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -348,7 +348,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-amber-600 bg-amber-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Deactive Customer
+                Deactive Customers
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -367,7 +367,7 @@ export default function Home() {
           </div>
 
           {/* card 4 */}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -376,7 +376,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-teal-600 bg-teal-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Unverified Driver
+                Unverified Drivers
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -401,10 +401,10 @@ export default function Home() {
 
       {/* ================================fourth row start here================================================ */}
       <div className="flex flex-col pt-5">
-        <h1 className="text-[20px] font-bold pl-5">Book services</h1>
+        <h1 className="text-[20px] font-bold pl-5">Booking Services Status</h1>
         <div className="mt-5 grid grid-cols-1 md:grid-cols-4 gap-2 ">
           {/* card 1 */}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -413,7 +413,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-indigo-600 bg-indigo-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Total Completed ride
+                Total Completed rides
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -433,7 +433,7 @@ export default function Home() {
           </div>
 
           {/* card 2 */}
-          <div className=" bg-white h-35  rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35  dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -442,7 +442,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-cyan-600 bg-cyan-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Total Start Ride
+                Total Start Rides
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -462,7 +462,7 @@ export default function Home() {
           </div>
 
           {/* card 3 */}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35 dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -471,7 +471,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-amber-600 bg-amber-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Total End Ride.
+                Total End Rides.
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -491,7 +491,7 @@ export default function Home() {
           </div>
 
           {/* card 4 */}
-          <div className=" bg-white h-35 rounded-2xl p-4 relative overflow-hidden shadow-md">
+          <div className=" bg-white h-35  dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl p-4 relative overflow-hidden shadow-md">
             <div
               className=""
               style={{ animationDelay: "1s" }}
@@ -500,7 +500,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-teal-600 bg-teal-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Total Cancel Ride.
+                Total Cancel Rides.
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>
@@ -523,47 +523,13 @@ export default function Home() {
       {/* ================================fourth row ends here================================================ */}
 
 
-      {/* online driver section start here */}
-      <div className="bg-white dark:bg-black rounded-2xl shadow-sm mt-12 overflow-hidden">
-        <div className="px-4 sm:px-5 pt-5 pb-3">
-          <h1 className="text-lg sm:text-xl font-semibold dark:text-white">Online Drivers</h1>
-          <p className="text-sm text-gray-400 mt-1 dark:text-white">Online Drivers and Current Location</p>
-        </div>
-
-        {/* ----------------------------------------- */}
-        <div className="flex flex-col md:flex-row min-w-0">
-          {/* Map Section */}
-          <div className="w-full md:w-1/2 min-w-0">
-            <div className="w-full h-[300px] sm:h-[350px] md:h-[400px]">
-              <iframe
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.671438003524!2d67.028511!3d24.810674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33d4f0a8b79b3%3A0xaf163d7514514a1e!2sKarachi!5e0!3m2!1sen!2s!4v1710000000000"
-              ></iframe>
-            </div>
-          </div>
-
-          {/* Drivers List Section */}
-          <div className="w-full md:w-1/2 min-w-0 border-t md:border-t-0 md:border-l border-gray-200">
-            <div className="bg-gray-100 border-b border-gray-300 py-3 px-4 sm:px-5">
-              <p className="text-sm sm:text-base font-medium text-gray-700 dark:text-white">Online Drivers</p>
-            </div>
-            <div className="p-4 sm:p-5 max-h-[400px] overflow-y-auto">
-              {/* Add your drivers list content here */}
-              <p className="text-gray-500 text-sm dark:text-white">Drivers list will appear here...</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
 
       {/* active orders starts here */}
-      <div className="py-6 sm:py-8">
+      <div className=" dark:bg-[#161c24] dark:border-gray-600 border mt-5 ">
         {/* Header Section */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 py-3 px-3">
           <div>
             <p className="text-sm sm:text-base font-medium text-gray-800 dark:text-white">
               Active Orders
@@ -573,17 +539,17 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap gap-2 sm:gap-3">
-            <button className="text-blue-600 bg-white dark:bg-black border border-gray-400 hover:bg-blue-50 rounded text-sm sm:text-base py-2 sm:py-3 px-3 sm:px-4 transition-colors whitespace-nowrap">
+            <button className="text-blue-600 bg-white dark:bg-[#161c24] dark:border-gray-600 border border-gray-400 hover:bg-blue-50 rounded text-sm sm:text-base py-2 sm:py-3 px-3 sm:px-4 transition-colors whitespace-nowrap">
               Dispatch A Trip
             </button>
-            <button className="bg-white border dark:bg-black border-gray-400 hover:bg-gray-50 rounded text-sm sm:text-base py-2 sm:py-3 px-3 sm:px-4 transition-colors whitespace-nowrap">
+            <button className="bg-white dark:bg-[#161c24] dark:border-gray-600 border border-gray-400 hover:bg-gray-50 rounded text-sm sm:text-base py-2 sm:py-3 px-3 sm:px-4 transition-colors whitespace-nowrap">
               View All
             </button>
           </div>
         </div>
 
         {/* Table Container with Horizontal Scroll */}
-        <div className="bg-white dark:bg-black rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <div className="bg-white dark:bg-[#161c24] dark:border-gray-600  rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           <div className="overflow-x-auto">
             <div className="min-w-[800px]">
               <OrdersTable />
@@ -596,7 +562,7 @@ export default function Home() {
       {/* pending section starts here */}
       <div className="flex flex-col md:flex-row gap-4 sm:gap-5 pt-12 sm:pt-16 md:pt-20">
         {/* Pending Drivers Card */}
-        <div className="bg-white w-full md:w-1/2 rounded-2xl shadow-sm min-h-[350px] sm:min-h-[400px] overflow-hidden">
+        {/* <div className="bg-white w-full md:w-1/2 rounded-2xl shadow-sm min-h-[350px] sm:min-h-[400px] overflow-hidden">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-4 sm:px-5 pt-4 sm:pt-5">
             <p className="text-sm sm:text-base font-semibold text-gray-800">
               Pending Drivers
@@ -617,12 +583,12 @@ export default function Home() {
               className="w-full max-w-[250px] sm:max-w-[300px] h-auto"
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Pending Support Requests Card */}
-        <div className="bg-white w-full md:w-1/2 rounded-2xl shadow-sm min-h-[350px] sm:min-h-[400px] overflow-hidden flex flex-col">
+        <div className="bg-white w-full dark:bg-[#161c24] dark:border-gray-600 border dark:text-gray-300 rounded-2xl shadow-sm min-h-[350px] sm:min-h-[400px] overflow-hidden flex flex-col">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-4 sm:px-5 pt-4 sm:pt-5 pb-3 sm:pb-4 border-b border-gray-100">
-            <p className="text-sm sm:text-base font-semibold text-gray-800">
+            <p className="text-sm sm:text-base font-semibold text-gray-800 dark:text-gray-300">
               Pending Support Requests
               <span className="bg-blue-600 text-white px-2 py-1 ml-2 rounded text-xs sm:text-sm font-semibold inline-block whitespace-nowrap">
                 378 Unresolved
@@ -643,10 +609,10 @@ export default function Home() {
       {/* last section starts from here */}
       <div className="flex flex-col md:flex-row gap-4 sm:gap-5 mt-12 sm:mt-16 md:mt-20">
         {/* spending customer section */}
-        <div className="bg-white rounded-2xl shadow-sm border p-4 sm:p-5 w-full md:w-1/2 overflow-hidden">
+        <div className="bg-white dark:bg-[#161c24] dark:border-gray-600  rounded-2xl shadow-sm border p-4 sm:p-5 w-full md:w-1/2 overflow-hidden">
           <div className="mb-4 sm:mb-6">
-            <h2 className="text-base sm:text-lg font-semibold text-gray-800">Top spending customers</h2>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1">Top 10 highest spending customers</p>
+            <h2 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-gray-300">Top spending customers</h2>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1 dark:text-gray-300">Top 10 highest spending customers</p>
           </div>
 
           {/* Top 3 */}
@@ -685,7 +651,7 @@ export default function Home() {
           {/* Rest - 5 rows visible */}
           <div className="overflow-y-auto max-h-[280px] sm:max-h-[320px] scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
             {customers.slice(3).map((c) => (
-              <div key={c.rank} className="flex items-center gap-3 sm:gap-4 py-2.5 sm:py-3 border-b last:border-b-0 hover:bg-gray-50 transition-colors">
+              <div key={c.rank} className="flex items-center gap-3 sm:gap-4 py-2.5 sm:py-3 border-b last:border-b-0  transition-colors">
                 <span className="text-gray-500 text-xs sm:text-sm w-5 sm:w-6 flex-shrink-0">{c.rank}</span>
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
                   <User className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-500" />
@@ -698,10 +664,10 @@ export default function Home() {
         </div>
 
         {/* spending drivers section */}
-        <div className="bg-white rounded-2xl shadow-sm border p-4 sm:p-5 w-full md:w-1/2 overflow-hidden">
+        <div className="bg-white dark:bg-[#161c24] dark:border-gray-600 border rounded-2xl shadow-sm border p-4 sm:p-5 w-full md:w-1/2 overflow-hidden">
           <div className="mb-4 sm:mb-6">
-            <h2 className="text-base sm:text-lg font-semibold text-gray-800">Top earning drivers</h2>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1">Top 10 highest earning drivers</p>
+            <h2 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-gray-300">Top earning drivers</h2>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1 dark:text-gray-300">Top 10 highest earning drivers</p>
           </div>
 
           {/* Top 3 */}
@@ -737,7 +703,7 @@ export default function Home() {
           {/* Rest - 5 rows visible */}
           <div className="overflow-y-auto max-h-[280px] sm:max-h-[320px] scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
             {drivers.slice(3).map((d) => (
-              <div key={d.rank} className="flex items-center gap-3 sm:gap-4 py-2.5 sm:py-3 border-b last:border-b-0 hover:bg-gray-50 transition-colors">
+              <div key={d.rank} className="flex items-center gap-3 sm:gap-4 py-2.5 sm:py-3 border-b last:border-b-0  transition-colors">
                 <span className="text-gray-500 text-xs sm:text-sm w-5 sm:w-6 flex-shrink-0">{d.rank}</span>
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
                   <User className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-500" />

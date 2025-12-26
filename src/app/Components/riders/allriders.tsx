@@ -33,13 +33,13 @@ export default function ALLRIDERS() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-50 p-8 dark:bg-[#161c24]">
       <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}
         <div className="mb-6">
           <div className="mb-4 flex items-center justify-between w-full">
-            <h1 className="text-2xl font-bold text-gray-800">Riders</h1>
+            <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-300">Riders</h1>
 
             <Link href="/riders/add-riders">
               <Button variant="primary">+ Add New</Button>
@@ -49,31 +49,31 @@ export default function ALLRIDERS() {
 
 
           <div className="flex gap-4 text-sm border-b">
-            <button className="pb-2 border-b-2 border-blue-600 text-blue-600 font-medium">
+            <button className="dark:text-gray-300 pb-2 border-b-2 border-blue-600 text-blue-600 font-medium">
               All ({users.length})
             </button>
-            <button className="pb-2 text-gray-600 hover:text-gray-800">
+            <button className="dark:text-gray-300 pb-2 text-gray-600 hover:text-gray-800">
               Active ({users.length})
             </button>
-            <button className="pb-2 text-gray-600 hover:text-gray-800">
+            <button className="dark:text-gray-300 pb-2 text-gray-600 hover:text-gray-800">
               Deactive (0)
             </button>
-            <button className="pb-2 text-gray-600 hover:text-gray-800">
+            <button className="dark:text-gray-300 pb-2 text-gray-600 hover:text-gray-800">
               Trash (0)
             </button>
           </div>
         </div>
 
         {/* TABLE */}
-        <div className="bg-white rounded-lg shadow">
+        <div className="bg-white rounded-lg shadow dark:bg-[#161c24]">
           <div className="flex items-center gap-4 px-1 py-3 border-b">
-            <select className="border rounded px-1 py-1 text-sm">
+            <select className="border dark:bg-[#161c24] dark:border-gray-500 rounded px-1 py-1 text-sm">
               <option>15</option>
               <option>25</option>
               <option>50</option>
             </select>
 
-            <select className=" border rounded px-1 py-1 text-sm">
+            <select className=" border dark:bg-[#161c24] dark:border-gray-500 rounded px-1 py-1 text-sm">
               <option>Bulk actions</option>
             </select>
 
@@ -96,22 +96,22 @@ export default function ALLRIDERS() {
           {/* TABLE BODY */}
           <div className="overflow-x-auto">
             <table className="w-full min-w-max">
-              <thead className="bg-gray-50 border-b">
+              <thead className="bg-gray-50 border-b dark:bg-[#161c24] dark:border-gray-500">
                 <tr>
                   <th className="px-4 py-3 text-left">
                     <input type="checkbox" className="rounded" />
                   </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Name </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Email </th>
+                  <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Name </th>
+                  <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Email </th>
                   {/* <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Role </th> */}
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Status </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Created At </th>
+                  <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Status </th>
+                  <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Created At </th>
                 </tr>
               </thead>
 
               <tbody>
                 {users.map((u) => (
-                  <tr key={u.id} className="border-b hover:bg-gray-50">
+                  <tr key={u.id} className="border-b ">
                     <td className="px-4 py-3">
                       <input type="checkbox" className="rounded" />
                     </td>
@@ -123,7 +123,7 @@ export default function ALLRIDERS() {
                         </div>
 
                         <div>
-                          <div className=" text-gray-900">{u.name}</div>
+                          <div className=" text-gray-900 dark:text-gray-300">{u.name}</div>
                           <div className="flex gap-2 text-sm">
                             <button className="text-blue-600 text-[12px] hover:underline">Edit</button>
                             <span className="text-gray-400">|</span>
@@ -133,7 +133,7 @@ export default function ALLRIDERS() {
                       </div>
                     </td>
 
-                    <td className="px-4 py-3 text-gray-700">{u.email}</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">{u.email}</td>
 
                     <td className="px-4 py-3">
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -147,7 +147,7 @@ export default function ALLRIDERS() {
                       </label>
                     </td>
 
-                    <td className="px-4 py-3 text-gray-700">{u.createdAt}</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">{u.createdAt}</td>
                   </tr>
                 ))}
               </tbody>

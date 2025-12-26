@@ -41,13 +41,13 @@ export default function AddRider() {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm p-8 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-semibold text-gray-800 mb-8">Add Rider</h1>
+    <div className="bg-white rounded-xl shadow-sm p-8 max-w-4xl mx-auto dark:bg-[#161c24]">
+      <h1 className="text-2xl font-semibold text-gray-800 mb-8 dark:text-gray-300">Add Rider</h1>
 
       <div className="space-y-6">
         {/* Profile Image */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="dark:text-gray-300 block text-sm font-medium text-gray-700 mb-2">
             Profile Image <span className="text-red-500">*</span>
           </label>
           <div className="flex items-start gap-4">
@@ -74,7 +74,7 @@ export default function AddRider() {
 
         {/* Full Name */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="dark:text-gray-300 block text-sm font-medium text-gray-700 mb-2">
             Full Name <span className="text-red-500">*</span>
           </label>
           <input
@@ -88,7 +88,7 @@ export default function AddRider() {
 
         {/* Email */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="dark:text-gray-300 block text-sm font-medium text-gray-700 mb-2">
             Email <span className="text-red-500">*</span>
           </label>
           <input
@@ -102,7 +102,7 @@ export default function AddRider() {
 
         {/* Phone */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="dark:text-gray-300 block text-sm font-medium text-gray-700 mb-2">
             Phone <span className="text-red-500">*</span>
           </label>
           <div className="flex gap-2">
@@ -128,7 +128,7 @@ export default function AddRider() {
 
         {/* New Password */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="dark:text-gray-300 block text-sm font-medium text-gray-700 mb-2">
             New Password <span className="text-red-500">*</span>
           </label>
           <div className="relative">
@@ -151,7 +151,7 @@ export default function AddRider() {
 
         {/* Confirm Password */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="dark:text-gray-300 block text-sm font-medium text-gray-700 mb-2">
             Confirm Password <span className="text-red-500">*</span>
           </label>
           <div className="relative">
@@ -174,7 +174,7 @@ export default function AddRider() {
 
         {/* Send Notification */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-3">
+          <label className="dark:text-gray-300 block text-sm font-medium text-gray-700 mb-3">
             Send Rider Notification
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
@@ -184,7 +184,7 @@ export default function AddRider() {
               onChange={(e) => setSendNotification(e.target.checked)}
               className="w-4 h-4 rounded border-gray-300 text-blue-500 focus:ring-blue-500"
             />
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-gray-600 dark:text-gray-300">
               Send the new rider an email about their account.
             </span>
           </label>

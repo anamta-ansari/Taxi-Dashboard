@@ -80,15 +80,15 @@ export default function Preference() {
 
   return (
     <>
-      <div className="min-h-screen bg-white border rounded shadow">
+      <div className="min-h-screen dark:bg-[#161c24] bg-white border rounded shadow">
         <div className="max-w-7xl mx-auto p-6">
 
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
-            <h1 className="text-2xl font-semibold text-gray-800">Preferences</h1>
+            <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-300">Preferences</h1>
             <button
               onClick={() => router.push('/preferences/create')}
-              className="px-4 py-2 bg-white border-2 border-blue-500 text-blue-500 rounded-lg font-medium hover:bg-blue-50 transition-colors flex items-center gap-2"
+              className="px-4 py-2 bg-blue-500 border-2 border-blue-500 text-white rounded font-medium hover:bg-blue-600 transition-colors flex items-center gap-2"
             >
               <Plus className="w-4 h-4" />
               Add New
@@ -96,62 +96,63 @@ export default function Preference() {
           </div>
 
           {/* Filters */}
-          <div className="bg-gray-50  p-4 mb-4">
-            <div className="flex items-center gap-4 mb-4">
-              <button onClick={() => setFilterTab('all')} className={`font-medium ${filterTab === 'all' ? 'text-gray-700' : 'text-gray-500'}`}>
-                All ({preferences.length})
+          <div className="bg-gray-50 dark:bg-[#161c24] p-4 mb-4">
+            {/* Tabs */}
+            <div className="flex gap-4 text-sm border-b mb-6">
+              <button className="dark:text-gray-300 pb-2 border-b-2 border-blue-600 text-blue-600 font-medium">
+                All
               </button>
-              <button onClick={() => setFilterTab('active')} className={`font-medium ${filterTab === 'active' ? 'text-gray-700' : 'text-gray-500'}`}>
-                Active ({activeCount})
+              <button className="dark:text-gray-300 pb-2 text-gray-600 hover:text-gray-800">
+                Active
               </button>
-              <button onClick={() => setFilterTab('deactive')} className={`font-medium ${filterTab === 'deactive' ? 'text-gray-700' : 'text-gray-500'}`}>
-                Deactive ({deactiveCount})
-              </button>
-              <button onClick={() => setFilterTab('trash')} className={`font-medium ${filterTab === 'trash' ? 'text-gray-700' : 'text-gray-500'}`}>
-                Trash ({trashCount})
+              <button className="dark:text-gray-300 pb-2 text-gray-600 hover:text-gray-800">
+                Inactive
               </button>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-2 items-center justify-between">
+            {/* Table Controls */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 px-4 py-3 border-b">
               <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg cursor-pointer">
-                  <span className="text-gray-700">15</span>
-                  <ChevronDown className="w-4 h-4 text-gray-500" />
+                {/* Pagination Select */}
+                <select className="border dark:bg-[#161c24] dark:border-gray-500 rounded px-2 py-2 text-sm appearance-none bg-white">
+                  <option>15</option>
+                  <option>25</option>
+                  <option>50</option>
+                </select>
+
+                {/* Bulk Actions Select */}
+                <div className="relative">
+                  <select className="border dark:bg-[#161c24] dark:border-gray-500 rounded px-2 py-2 text-sm appearance-none bg-white pr-8">
+                    <option>Bulk actions</option>
+                    <option>Activate</option>
+                    <option>Deactivate</option>
+                    <option>Delete</option>
+                  </select>
+                  <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
                 </div>
-                <div className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg cursor-pointer">
-                  <span className="text-gray-700">Bulk actions</span>
-                  <ChevronDown className="w-4 h-4 text-gray-500" />
-                </div>
-                <button className="px-4 py-2 border-2 borde-blue-500 text-blue-500 rounded-lg hover:bg-blue-50">
+
+                <button className="bg-blue-500 text-white px-3 py-2 rounded text-sm hover:bg-blue-600 transition-colors">
                   Apply
                 </button>
               </div>
 
-              <div className="flex  items-center gap-1">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                    className="pl-4 pr-7 py-2 border border-gray-300 rounded focus:ring-blue-500"
-                  />
-                  <Search className="w-4 h-4 text-gray-400 absolute right-3 top-3" />
-                </div>
-                <button onClick={handleSearch} className="px-3 py-2 border-2 border-blue-500 text-blue-500 rounded hover:bg-blue-50">
+              <div className=" sm:ml-auto flex items-center gap-1">
+                <input
+                  type="search"
+                  placeholder="Search"
+                  className="border rounded px-2 py-2 text-sm"
+                />
+                <button className="px-2 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">
                   Search
                 </button>
               </div>
-
-              {/* <div className="text-gray-600 font-medium">{filteredPreferences.length} Items</div> */}
             </div>
           </div>
 
           {/* Table */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+          <div className="bg-white dark:bg-[#161c24] rounded-lg shadow-sm overflow-hidden">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className=" border-b border-gray-200">
                 <tr>
                   <th className="px-6 py-4 text-left">
                     <input
@@ -161,9 +162,9 @@ export default function Preference() {
                       className="w-4 h-4 rounded border-gray-300 cursor-pointer"
                     />
                   </th>
-                  <th className="px-6 py-4 text-left font-semibold text-gray-700">Name </th>
-                  <th className="px-6 py-4 text-left font-semibold text-gray-700">Status </th>
-                  <th className="px-6 py-4 text-left font-semibold text-gray-700">Created At </th>
+                  <th className="dark:text-gray-300 px-6 py-4 text-left font-semibold text-gray-700">Name </th>
+                  <th className="dark:text-gray-300 px-6 py-4 text-left font-semibold text-gray-700">Status </th>
+                  <th className="dark:text-gray-300 px-6 py-4 text-left font-semibold text-gray-700">Created At </th>
                 </tr>
               </thead>
 
@@ -176,7 +177,7 @@ export default function Preference() {
                   </tr>
                 ) : (
                   filteredPreferences.map((pref) => (
-                    <tr key={pref.id} className="hover:bg-gray-50">
+                    <tr key={pref.id} className="">
 
                       {/* CHECKBOX */}
                       <td className="px-6 py-4">
@@ -195,7 +196,7 @@ export default function Preference() {
                             {pref.image}
                           </div>
                           <div>
-                            <div className="font-medium text-gray-800">{pref.name}</div>
+                            <div className="font-medium text-gray-800 dark:text-gray-300">{pref.name}</div>
                             <div className="text-sm text-gray-500">
                               <button onClick={() => handleEdit(pref.id)} className="text-blue-500 hover:underline">Edit</button>
                               <span className="mx-1">|</span>
@@ -227,7 +228,7 @@ export default function Preference() {
                       </td>
 
                       {/* CREATED DATE */}
-                      <td className="px-6 py-4 text-gray-600">{pref.createdAt}</td>
+                      <td className="px-6 py-4 text-gray-600 dark:text-gray-300">{pref.createdAt}</td>
                     </tr>
                   ))
                 )}

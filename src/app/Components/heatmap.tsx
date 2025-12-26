@@ -119,10 +119,10 @@ export default function HeatmapPage() {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <div className="bg-white shadow-lg rounded-2xl p-6">
+    <div className="p-6 bg-gray-100 dark:bg-[#161c24] min-h-screen">
+      <div className="bg-white dark:bg-[#161c24] dark:border-gray-300 border shadow-lg rounded-2xl p-6">
         <h1 className="text-2xl font-semibold mb-2">Heat Map</h1>
-        <p className="text-gray-600 mb-4">
+        <p className="text-gray-600 mb-4 dark:text-gray-300">
           This heatmap represents ride request data. Areas with higher ride
           requests appear heated (red/orange).
         </p>

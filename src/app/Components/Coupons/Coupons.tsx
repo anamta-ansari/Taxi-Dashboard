@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -145,12 +146,12 @@ export default function Coupons() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 p-8">
+        <div className="min-h-screen bg-gray-50 p-8 dark:bg-[#161c24] ">
             <div className="max-w-7xl mx-auto">
                 {/* HEADER */}
                 <div className="mb-6">
                     <div className="mb-4 flex justify-between items-center">
-                        <h1 className="text-[28px] font-bold text-gray-800">Coupons</h1>
+                        <h1 className="text-[28px] font-bold text-gray-800 dark:text-gray-300">Coupons</h1>
                         <Button
                             onClick={() => router.push('/Coupons/create')}
                             className="flex items-center gap-1 font-normal"
@@ -161,25 +162,25 @@ export default function Coupons() {
 
                     {/* Tabs */}
                     <div className="flex gap-4 text-sm border-b">
-                        <button className="pb-2 border-b-2 border-blue-600 text-blue-600 font-medium">
+                        <button className="dark:text-gray-300 pb-2 border-b-2 border-blue-600 text-blue-600 font-medium">
                             All ({coupons.length})
                         </button>
-                        <button className="pb-2 text-gray-600 hover:text-gray-800">
+                        <button className="dark:text-gray-300 pb-2 text-gray-600 hover:text-gray-800">
                             Active ({activeCount})
                         </button>
-                        <button className="pb-2 text-gray-600 hover:text-gray-800">
+                        <button className="dark:text-gray-300 pb-2 text-gray-600 hover:text-gray-800">
                             Inactive ({inactiveCount})
                         </button>
                     </div>
                 </div>
 
                 {/* TABLE */}
-                <div className="bg-white rounded-lg shadow">
+                <div className="bg-white dark:bg-[#161c24] rounded-lg shadow">
                     {/* Table Controls */}
                     <div className="flex flex-col sm:flex-row items-center gap-4 px-4 py-3 border-b">
                         <div className="flex items-center gap-3">
                             {/* Pagination Select */}
-                            <select className="border rounded px-2 py-2 text-sm appearance-none bg-white">
+                            <select className="border dark:bg-[#161c24] dark:border-gray-500 rounded px-2 py-2 text-sm appearance-none bg-white">
                                 <option>15</option>
                                 <option>25</option>
                                 <option>50</option>
@@ -187,7 +188,7 @@ export default function Coupons() {
 
                             {/* Bulk Actions Select */}
                             <div className="relative">
-                                <select className="border rounded px-2 py-2 text-sm appearance-none bg-white pr-8">
+                                <select className="border dark:bg-[#161c24] dark:border-gray-500 rounded px-2 py-2 text-sm appearance-none bg-white pr-8">
                                     <option>Bulk actions</option>
                                     <option>Activate</option>
                                     <option>Deactivate</option>
@@ -216,17 +217,17 @@ export default function Coupons() {
                     {/* TABLE BODY */}
                     <div className="overflow-x-auto">
                         <table className="w-full">
-                            <thead className="bg-gray-50 border-b">
+                            <thead className="bg-gray-50 dark:bg-[#161c24] border-b">
                                 <tr>
                                     <th className="px-4 py-3 text-left">
                                         <input type="checkbox" className="rounded" />
                                     </th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Title</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Code</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Type</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Amount</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Status</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Created At</th>
+                                    <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Title</th>
+                                    <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Code</th>
+                                    <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Type</th>
+                                    <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Amount</th>
+                                    <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Status</th>
+                                    <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Created At</th>
                                 </tr>
                             </thead>
 
@@ -239,7 +240,7 @@ export default function Coupons() {
                                     </tr>
                                 ) : (
                                     coupons.map((item) => (
-                                        <tr key={item.id} className="border-b hover:bg-gray-50">
+                                        <tr key={item.id} className="border-b ">
                                             <td className="px-4 py-3">
                                                 <input type="checkbox" className="rounded" />
                                             </td>
@@ -247,7 +248,7 @@ export default function Coupons() {
                                             <td className="px-4 py-3">
                                                 <div className="flex items-center gap-3">
                                                     <div>
-                                                        <div className="text-gray-900 font-medium">{item.title}</div>
+                                                        <div className="text-gray-900 font-medium dark:text-gray-300">{item.title}</div>
                                                         <div className="flex gap-2 text-sm mt-1">
                                                             <button
                                                                 onClick={() => handleEdit(item.id)}
@@ -267,9 +268,9 @@ export default function Coupons() {
                                                 </div>
                                             </td>
 
-                                            <td className="px-4 py-3 text-gray-700">{item.code}</td>
-                                            <td className="px-4 py-3 text-gray-700">{item.type}</td>
-                                            <td className="px-4 py-3 text-gray-700">{item.amount}</td>
+                                            <td className="px-4 py-3 text-gray-700 dark:text-gray-300">{item.code}</td>
+                                            <td className="px-4 py-3 text-gray-700 dark:text-gray-300">{item.type}</td>
+                                            <td className="px-4 py-3 text-gray-700 dark:text-gray-300">{item.amount}</td>
 
                                             {/* Status Toggle */}
                                             <td className="px-4 py-3">
@@ -287,7 +288,7 @@ export default function Coupons() {
                                                 </button>
                                             </td>
 
-                                            <td className="px-4 py-3 text-gray-700 text-sm">{item.createdAt}</td>
+                                            <td className="px-4 py-3 text-gray-700 text-sm dark:text-gray-300">{item.createdAt}</td>
                                         </tr>
                                     ))
                                 )}

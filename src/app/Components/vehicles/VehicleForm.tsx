@@ -25,7 +25,6 @@ export default function VehicleForm() {
     serviceCategories: [] as string[],
     maxSeats: "",
     status: true,
-    allZones: false,
     zones: [] as string[],
   })
 
@@ -61,7 +60,11 @@ export default function VehicleForm() {
       id: Date.now().toString(),
       ...formData,
       maxSeats: parseInt(formData.maxSeats) || 0,
-      createdAt: `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')} ${now.getHours() >= 12 ? 'PM' : 'AM'}`,
+      createdAt: `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(
+        now.getDate()
+      ).padStart(2, "0")} ${String(now.getHours()).padStart(2, "0")}:${String(
+        now.getMinutes()
+      ).padStart(2, "0")}:${String(now.getSeconds()).padStart(2, "0")} ${now.getHours() >= 12 ? "PM" : "AM"}`,
     }
 
     existingVehicles.push(newVehicle)
@@ -71,7 +74,6 @@ export default function VehicleForm() {
       if (exit) {
         router.push("/cab/vehicles")
       } else {
-        // Reset form
         setFormData({
           name: "",
           image: "",
@@ -81,7 +83,6 @@ export default function VehicleForm() {
           serviceCategories: [],
           maxSeats: "",
           status: true,
-          allZones: false,
           zones: [],
         })
         setLoading(false)
@@ -91,10 +92,10 @@ export default function VehicleForm() {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="grid dark:bg-[#161c24] dark:border-gray-600 border grid-cols-1 lg:grid-cols-3 gap-6">
       {/* Left Form Section */}
       <div className="lg:col-span-2 space-y-6">
-        <div className="bg-white rounded-lg border p-6">
+        <div className="bg-white dark:bg-[#161c24] dark:border-gray-600 rounded-lg border p-6">
           <h2 className="text-xl font-semibold mb-6">Add Vehicle Type (en)</h2>
 
           <div className="space-y-6">
@@ -160,10 +161,9 @@ export default function VehicleForm() {
       </div>
 
       {/* Right Sidebar */}
-      <div className="space-y-6">
+      <div className="space-y-6 dark:bg-[#161c24]">
         {/* Publish Section */}
-        <div className="bg-white rounded-lg border p-6">
-          <h3 className="text-lg font-semibold mb-4">Publish</h3>
+        <div className="bg-white dark:bg-[#161c24] dark:border-gray-600 border rounded-lg p-6">
           <div className="space-y-3">
             <button
               onClick={() => handleSave(false)}
@@ -185,34 +185,16 @@ export default function VehicleForm() {
         </div>
 
         {/* Additional Info */}
-        <div className="bg-white rounded-lg border p-6">
+        <div className="bg-white dark:bg-[#161c24] dark:border-gray-600 border rounded-lg p-6">
           <h3 className="text-lg font-semibold mb-4">Additional Info</h3>
 
           <div className="space-y-4">
-            {/* All Zones Toggle */}
-            <div className="flex items-center justify-between">
-              <label className="text-sm font-medium text-gray-700">All Zones</label>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  name="allZones"
-                  checked={formData.allZones}
-                  onChange={handleCheckbox}
-                  className="sr-only peer"
-                />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-              </label>
-            </div>
-
             {/* Zones Dropdown */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Zones <span className="text-red-500">*</span>
               </label>
-              <select
-                disabled={formData.allZones}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
-              >
+              <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                 <option>Select Zones</option>
               </select>
             </div>
@@ -224,18 +206,22 @@ export default function VehicleForm() {
               </label>
               <div
                 onClick={() => setShowDropdown(!showDropdown)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg cursor-pointer bg-white flex items-center justify-between"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg cursor-pointer bg-white dark:bg-[#161c24] dark:border-gray-600 flex items-center justify-between"
               >
                 <span className="text-gray-500 text-sm">
                   {formData.serviceCategories.length > 0
                     ? formData.serviceCategories.join(", ")
                     : "Select Service Categories"}
                 </span>
-                <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${showDropdown ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  className={`w-4 h-4 text-gray-400 transition-transform ${
+                    showDropdown ? "rotate-180" : ""
+                  }`}
+                />
               </div>
 
               {showDropdown && (
-                <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                <div className="absolute z-10 w-full mt-1 bg-white dark:bg-[#161c24] dark:border-gray-600 border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
                   {serviceCategories.map((category) => (
                     <div
                       key={category}
@@ -265,7 +251,7 @@ export default function VehicleForm() {
               )}
             </div>
 
-            {/* Status Toggle */}
+            {/* Status Toggle — UNCHANGED */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
               <label className="relative inline-flex items-center cursor-pointer">

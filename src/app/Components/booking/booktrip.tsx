@@ -16,7 +16,7 @@ interface Prediction {
 
 export default function BookTrip() {
   const router = useRouter();
-  
+
   const [date, setDate] = useState('December 17, 2025');
   const [time, setTime] = useState('ASAP');
   const [pickupLocation, setPickupLocation] = useState('');
@@ -30,7 +30,7 @@ export default function BookTrip() {
   const [returnTrip, setReturnTrip] = useState(false);
   const [showPaymentDropdown, setShowPaymentDropdown] = useState(false);
   const [showVehicleDropdown, setShowVehicleDropdown] = useState(false);
-  
+
   const [pickup, setPickup] = useState<Location | null>(null);
   const [dropoff, setDropoff] = useState<Location | null>(null);
   const [pickupSuggestions, setPickupSuggestions] = useState<Prediction[]>([]);
@@ -47,7 +47,12 @@ export default function BookTrip() {
   const geocoderRef = useRef<google.maps.Geocoder | null>(null);
 
   const paymentOptions = ['Add credit card', 'Payment on board', 'Cash', 'Debit card'];
-  const vehicleOptions = ['No vehicle available', 'Sedan', 'SUV', 'Van', 'Luxury'];
+  const vehicleOptions = ['Regular - 4 Seater or Any Vehicle', 'Regular - 6 Seater', 'Regular - 8 Seater', 'Wheelchair'];
+
+  //ckeck box
+  const [showReturnModal, setShowReturnModal] = useState(false);
+  const [returnDate, setReturnDate] = useState('December 24, 2025');
+  const [returnTime, setReturnTime] = useState('10:05');
 
   // Initialize Google Maps
   useEffect(() => {
@@ -145,7 +150,7 @@ export default function BookTrip() {
 
   const handlePickupInput = (value: string) => {
     setPickupLocation(value);
-    
+
     if (value.length > 2 && autocompleteServiceRef.current) {
       autocompleteServiceRef.current.getPlacePredictions(
         {
@@ -166,7 +171,7 @@ export default function BookTrip() {
 
   const handleDropoffInput = (value: string) => {
     setDropoffLocation(value);
-    
+
     if (value.length > 2 && autocompleteServiceRef.current) {
       autocompleteServiceRef.current.getPlacePredictions(
         {
@@ -193,7 +198,7 @@ export default function BookTrip() {
         if (status === 'OK' && results && results[0]) {
           const location = results[0];
           const coords = location.geometry.location;
-          
+
           const locationData: Location = {
             address: location.formatted_address,
             lat: coords.lat(),
@@ -246,10 +251,10 @@ export default function BookTrip() {
 
     // Get existing bookings from localStorage
     const existingBookings = JSON.parse(localStorage.getItem('bookings') || '[]');
-    
+
     // Add new booking to the beginning
     const updatedBookings = [newBooking, ...existingBookings];
-    
+
     // Save to localStorage
     localStorage.setItem('bookings', JSON.stringify(updatedBookings));
 
@@ -263,42 +268,42 @@ export default function BookTrip() {
       <div ref={mapRef} className="absolute inset-0 w-full h-full"></div>
 
       {/* Floating Form Panel */}
-      <div className="absolute left-0 sm:left-8 overflow-x-auto top-8 w-auto sm:w-[480px] max-h-[calc(100vh-4rem)] bg-white shadow-2xl rounded-xl overflow-y-auto z-10">
+      <div className="absolute dark:bg-[#161c24] left-0 sm:left-8 overflow-x-auto top-8 w-auto sm:w-[480px] max-h-[calc(100vh-4rem)] bg-white shadow-2xl rounded-xl overflow-y-auto z-10">
         <div className="p-8">
-          <h1 className="text-3xl font-semibold text-gray-900 mb-8">Book a trip</h1>
+          <h1 className="text-3xl font-semibold text-gray-900 mb-8 dark:text-gray-300">Book a trip</h1>
 
           {/* Date and Time */}
           <div className="grid grid-cols-2 gap-4 mb-6">
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-2 uppercase tracking-wide">
+              <label className="block dark:text-gray-300 text-xs font-medium text-gray-600 mb-2 uppercase tracking-wide">
                 Date
               </label>
               <input
-                type="text"
+                type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-50 border-0 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 dark:text-white dark:bg-[#161c24] dark:border-gray-500 dark:text-gray-300 bg-gray-50 border rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-2 uppercase tracking-wide">
+              <label className="block dark:text-gray-300 text-xs font-medium text-gray-600 mb-2 uppercase tracking-wide">
                 Time (24 Hour)
               </label>
               <input
-                type="text"
+                type="time"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-50 border-0 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 dark:text-white dark:bg-[#161c24] dark:border-gray-500 dark:text-gray-300 bg-gray-50 border rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
 
           {/* Pickup / Drop-off */}
           <div className="mb-6">
-            <label className="block text-xs font-medium text-gray-600 mb-3 uppercase tracking-wide">
+            <label className="dark:text-gray-300 block text-xs font-medium text-gray-600 mb-3 uppercase tracking-wide">
               Pickup / Drop-off
             </label>
-            
+
             <div className="space-y-4">
               {/* Pickup Location */}
               <div className="relative flex items-start gap-3">
@@ -311,9 +316,9 @@ export default function BookTrip() {
                     value={pickupLocation}
                     onChange={(e) => handlePickupInput(e.target.value)}
                     placeholder="Enter pickup location"
-                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 dark:text-white dark:bg-[#161c24] dark:border-gray-500 border bg-gray-50  rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
-                  
+
                   {/* Pickup Suggestions Dropdown */}
                   {showPickupSuggestions && pickupSuggestions.length > 0 && (
                     <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
@@ -347,9 +352,9 @@ export default function BookTrip() {
                     value={dropoffLocation}
                     onChange={(e) => handleDropoffInput(e.target.value)}
                     placeholder="Enter drop-off location"
-                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 dark:text-white dark:bg-[#161c24] dark:border-gray-500 border bg-gray-50 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
-                  
+
                   {/* Dropoff Suggestions Dropdown */}
                   {showDropoffSuggestions && dropoffSuggestions.length > 0 && (
                     <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
@@ -376,27 +381,27 @@ export default function BookTrip() {
 
           {/* Payment Method */}
           <div className="mb-6">
-            <label className="block text-xs font-medium text-gray-600 mb-2 uppercase tracking-wide">
+            <label className="dark:text-gray-300 block text-xs font-medium text-gray-600 mb-2 uppercase tracking-wide">
               Payment Method
             </label>
             <div className="relative">
               <button
                 onClick={() => setShowPaymentDropdown(!showPaymentDropdown)}
-                className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                className="w-full flex dark:text-gray-300 dark:bg-[#161c24] dark:border-gray-500 border items-center justify-between px-4 py-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                   </svg>
-                  <span className="text-gray-900 font-medium">{paymentMethod}</span>
+                  <span className="text-gray-900 font-medium dark:text-gray-300">{paymentMethod}</span>
                 </div>
                 <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              
+
               {showPaymentDropdown && (
-                <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg">
+                <div className="absolute z-50 w-full mt-1 bg-white  dark:bg-[#161c24] dark:border-gray-500 border border-gray-200 rounded-lg shadow-lg">
                   {paymentOptions.map((option) => (
                     <button
                       key={option}
@@ -404,7 +409,7 @@ export default function BookTrip() {
                         setPaymentMethod(option);
                         setShowPaymentDropdown(false);
                       }}
-                      className="w-full px-4 py-3 text-left hover:bg-gray-50 text-sm text-gray-700 border-b last:border-b-0"
+                      className="w-full px-4 py-3 text-left dark:text-gray-300 text-sm text-gray-700 border-b last:border-b-0"
                     >
                       {option}
                     </button>
@@ -416,20 +421,20 @@ export default function BookTrip() {
 
           {/* Vehicle Options / Note to Driver */}
           <div className="mb-6">
-            <label className="block text-xs font-medium text-gray-600 mb-2 uppercase tracking-wide">
+            <label className="block text-xs dark:text-gray-300 font-medium text-gray-600 mb-2 uppercase tracking-wide">
               Vehicle Options / Note to Driver
             </label>
-            
+
             <div className="relative mb-3">
               <button
                 onClick={() => setShowVehicleDropdown(!showVehicleDropdown)}
-                className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                className="w-full flex items-center dark:text-gray-300 justify-between px-4 py-3 bg-gray-50 dark:bg-[#161c24] dark:border-gray-500 border rounded-lg transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
                   </svg>
-                  <span className={`font-medium ${vehicleType ? 'text-gray-900' : 'text-gray-500'}`}>
+                  <span className={`font-medium ${vehicleType ? 'text-gray-900 dark:text-gray-300' : 'text-gray-500'}`}>
                     {vehicleType || 'Select a vehicle type'}
                   </span>
                 </div>
@@ -437,9 +442,9 @@ export default function BookTrip() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              
+
               {showVehicleDropdown && (
-                <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg">
+                <div className="absolute z-50 w-full mt-1 bg-white  dark:bg-[#161c24] dark:border-gray-500 border border-gray-200 rounded-lg shadow-lg">
                   {vehicleOptions.map((option) => (
                     <button
                       key={option}
@@ -447,7 +452,7 @@ export default function BookTrip() {
                         setVehicleType(option);
                         setShowVehicleDropdown(false);
                       }}
-                      className="w-full px-4 py-3 text-left hover:bg-gray-50 text-sm text-gray-700 border-b last:border-b-0"
+                      className="w-full px-4 py-3 text-left dark:text-gray-300 text-sm text-gray-700 border-b last:border-b-0"
                     >
                       {option}
                     </button>
@@ -461,26 +466,90 @@ export default function BookTrip() {
               onChange={(e) => setNoteToDriver(e.target.value)}
               placeholder="Add note to driver..."
               rows={3}
-              className="w-full px-4 py-3 bg-gray-50 border-0 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+              className="w-full px-4 py-3 bg-gray-50 dark:text-white dark:bg-[#161c24] dark:border-gray-500 border rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             />
           </div>
 
-          {/* Return Trip Checkbox */}
           <div className="mb-8">
             <label className="flex items-center gap-3 cursor-pointer">
               <input
                 type="checkbox"
                 checked={returnTrip}
-                onChange={(e) => setReturnTrip(e.target.checked)}
+                onChange={(e) => {
+                  setReturnTrip(e.target.checked);
+                  if (e.target.checked) {
+                    setShowReturnModal(true);
+                  }
+                }}
                 className="w-5 h-5 rounded border-gray-300 text-blue-500 focus:ring-blue-500 cursor-pointer"
               />
-              <span className="text-gray-700">Would you like to book a return trip?</span>
+              <span className="text-gray-700 dark:text-gray-300">Would you like to book a return trip?</span>
             </label>
           </div>
 
+          {/* Return Booking Modal */}
+          {showReturnModal && (
+            <div className="fixed inset-0  flex items-center justify-center z-50">
+              <div className="bg-white dark:bg-[#161c24] dark:border-gray-500 border rounded-xl shadow-2xl p-8 max-w-md w-full mx-4">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-6 dark:text-gray-300">Return Booking</h2>
+
+                <div className="space-y-6">
+                  {/* Date */}
+                  <div>
+                    <label className="block text-xs font-medium dark:text-gray-300 text-gray-500 uppercase tracking-wide mb-2">
+                      Date
+                    </label>
+                    <input
+                      type="date"
+                      value={returnDate}
+                      onChange={(e) => setReturnDate(e.target.value)}
+                      className="w-full px-4 py-3 dark:text-white bg-gray-50 dark:bg-[#161c24] dark:border-gray-500 border  rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  {/* Time */}
+                  <div>
+                    <label className="block text-xs font-medium dark:text-gray-300 text-gray-500 uppercase tracking-wide mb-2">
+                      Time (24 Hour)
+                    </label>
+                    <input
+                      type="time"
+                      value={returnTime}
+                      onChange={(e) => setReturnTime(e.target.value)}
+                      className="w-full px-4 py-3 dark:text-white bg-gray-50 dark:text-white dark:bg-[#161c24] dark:border-gray-500 border rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex gap-4 mt-8">
+                  <button
+                    onClick={() => {
+                      setShowReturnModal(false);
+                      setReturnTrip(false);
+                    }}
+                    className="flex-1 px-6 py-3 text-gray-700 dark:text-gray-300 dark:bg-[#161c24] dark:border-gray-500 border font-medium rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowReturnModal(false);
+                      console.log('Return trip confirmed:', { returnDate, returnTime });
+                    }}
+                    className="flex-1 px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors"
+                  >
+                    Confirm
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+
           {/* Action Buttons */}
           <div className="flex gap-4">
-            <button 
+            <button
               onClick={() => router.push('/history')}
               className="flex-1 px-6 py-2 text-gray-700 bg-gray-300 font-medium rounded-lg hover:bg-gray-100 transition-colors"
             >
@@ -503,7 +572,7 @@ export default function BookTrip() {
           <div className="text-sm font-medium text-gray-900">{pickup.address}</div>
         </div>
       )}
-      
+
       {dropoff && (
         <div className="absolute bottom-8 right-8 bg-white rounded-lg shadow-lg p-4 max-w-sm z-10">
           <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">Drop-off</div>

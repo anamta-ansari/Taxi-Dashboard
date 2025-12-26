@@ -112,9 +112,9 @@ export default function MapZoneCreator() {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[350px_1fr] gap-6">
+    <div className="grid grid-cols-1 dark:bg-[#161c24] lg:grid-cols-[350px_1fr] gap-6">
       {/* Form Panel */}
-      <div className="bg-white rounded-lg border p-6 h-fit">
+      <div className="bg-white dark:bg-[#161c24]  rounded-lg border p-6 h-fit">
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-6 text-sm text-blue-900">
           <strong>How to create a zone:</strong>
           <ul className="ml-5 mt-2 space-y-1">
@@ -130,7 +130,7 @@ export default function MapZoneCreator() {
           libraries={libraries}
         >
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="dark:text-gray-300 block text-sm font-medium text-gray-700 mb-2">
               Search Location
             </label>
             <Autocomplete
@@ -151,7 +151,7 @@ export default function MapZoneCreator() {
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="dark:text-gray-300 block text-sm font-medium text-gray-700 mb-2">
               Zone Name *
             </label>
             <input
@@ -164,13 +164,13 @@ export default function MapZoneCreator() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="dark:text-gray-300 block text-sm font-medium text-gray-700 mb-2">
               Currency *
             </label>
             <select
               value={formData.currency}
               onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border dark:bg-[#161c24] border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
@@ -181,13 +181,13 @@ export default function MapZoneCreator() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block dark:text-gray-300 text-sm font-medium text-gray-700 mb-2">
               Distance Type *
             </label>
             <select
               value={formData.distanceType}
               onChange={(e) => setFormData({ ...formData, distanceType: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 dark:bg-[#161c24] border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               <option value="Km">Km</option>
               <option value="Miles">Miles</option>
@@ -205,12 +205,12 @@ export default function MapZoneCreator() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block dark:text-gray-300 text-sm font-medium text-gray-700 mb-2">
               Points Added: {points.length}
             </label>
-            <div className="max-h-40 overflow-y-auto bg-gray-50 rounded-lg p-2 space-y-1">
+            <div className="max-h-40 dark:bg-[#161c24] dark:text-gray-300 overflow-y-auto bg-gray-50 rounded-lg p-2 space-y-1">
               {points.map((p, i) => (
-                <div key={i} className="flex justify-between items-center text-xs bg-white px-2 py-1 rounded">
+                <div key={i} className="flex justify-between items-center text-xs bg-white dark:bg-[#161c24] dark:text-gray-300  dark:border-gray-500 border px-2 py-1 rounded">
                   <span>{i + 1}. ({p.lat.toFixed(5)}, {p.lng.toFixed(5)})</span>
                   <button
                     onClick={() => removePoint(i)}

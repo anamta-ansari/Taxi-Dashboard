@@ -247,8 +247,8 @@ export const AddRoleForm = () => {
   );
 
   return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <h2 className="text-xl font-bold mb-6">Add Role</h2>
+    <div className="bg-white dark:bg-[#161c24] dark:border-gray-500 border rounded-lg shadow p-6">
+      <h2 className="text-xl font-bold mb-6 dark:text-gray-300">Add Role</h2>
 
       <div className="space-y-6 max-w-4xl">
         <div>
@@ -267,7 +267,7 @@ export const AddRoleForm = () => {
             Permissions<span className="text-red-500">*</span>
           </label>
 
-          <div className="border rounded-lg p-4 bg-gray-50 max-h-96 overflow-y-auto w-full">
+          <div className="border rounded-lg p-4 dark:bg-[#161c24] bg-gray-50 max-h-96 overflow-y-auto w-full">
   {/* Horizontal Scroll Wrapper */}
   <div className="w-full overflow-x-auto">
     <div className="min-w-[600px]"> 
@@ -286,7 +286,7 @@ export const AddRoleForm = () => {
 
       {/* Attachments */}
       <div className="mb-6">
-        <div className="font-medium text-gray-800 mb-3">Attachments:</div>
+        <div className="font-medium text-gray-800 mb-3 dark:text-gray-300">Attachments:</div>
         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4 ml-4">
           <PermissionCheckbox label="All" checked={permissions.attachments.all} onChange={() => handlePermissionChange('attachments', 'all')} />
           <PermissionCheckbox label="Index" checked={permissions.attachments.index} onChange={() => handlePermissionChange('attachments', 'index')} />
@@ -300,7 +300,7 @@ export const AddRoleForm = () => {
 
       {/* Users */}
       <div className="mb-6">
-        <div className="font-medium text-gray-800 mb-3">Users:</div>
+        <div className="font-medium text-gray-800 mb-3 dark:text-gray-300 ">Users:</div>
         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4 ml-4">
           <PermissionCheckbox label="All" checked={permissions.users.all} onChange={() => handlePermissionChange('users', 'all')} />
           <PermissionCheckbox label="Index" checked={permissions.users.index} onChange={() => handlePermissionChange('users', 'index')} />
@@ -314,7 +314,7 @@ export const AddRoleForm = () => {
 
       {/* Roles */}
       <div className="mb-6">
-        <div className="font-medium text-gray-800 mb-3">Roles:</div>
+        <div className="font-medium text-gray-800 mb-3 dark:text-gray-300">Roles:</div>
         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4 ml-4">
           <PermissionCheckbox label="All" checked={permissions.roles.all} onChange={() => handlePermissionChange('roles', 'all')} />
           <PermissionCheckbox label="Index" checked={permissions.roles.index} onChange={() => handlePermissionChange('roles', 'index')} />
@@ -326,7 +326,7 @@ export const AddRoleForm = () => {
 
       {/* Categories */}
       <div className="mb-6">
-        <div className="font-medium text-gray-800 mb-3">Categories:</div>
+        <div className="font-medium text-gray-800 mb-3 dark:text-gray-300">Categories:</div>
         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4 ml-4">
           <PermissionCheckbox label="All" checked={permissions.categories.all} onChange={() => handlePermissionChange('categories', 'all')} />
           <PermissionCheckbox label="Index" checked={permissions.categories.index} onChange={() => handlePermissionChange('categories', 'index')} />
@@ -338,7 +338,7 @@ export const AddRoleForm = () => {
 
       {/* Tags */}
       <div className="mb-6">
-        <div className="font-medium text-gray-800 mb-3">Tags:</div>
+        <div className="font-medium text-gray-800 mb-3 dark:text-gray-300">Tags:</div>
         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4 ml-4">
           <PermissionCheckbox label="All" checked={permissions.tags.all} onChange={() => handlePermissionChange('tags', 'all')} />
           <PermissionCheckbox label="Index" checked={permissions.tags.index} onChange={() => handlePermissionChange('tags', 'index')} />

@@ -121,11 +121,11 @@ export default function CreateCoupon() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 p-8">
+        <div className="min-h-screen bg-gray-50 p-8 dark:bg-[#161c24] ">
             <div className="max-w-3xl mx-auto">
                 {/* Header */}
                 <div className="mb-6">
-                    <h1 className="text-[28px] font-bold text-gray-800 mb-2">Add New Coupon</h1>
+                    <h1 className="text-[28px] font-bold text-gray-800 mb-2 dark:text-gray-300">Add New Coupon</h1>
                     <button
                         onClick={() => router.push('/coupons')}
                         className="text-blue-600 hover:underline text-sm"
@@ -135,11 +135,11 @@ export default function CreateCoupon() {
                 </div>
 
                 {/* Form Card */}
-                <div className="bg-white rounded-lg shadow p-6">
+                <div className="bg-white dark:bg-[#161c24] dark:border-gray-500 border rounded-lg shadow p-6">
                     <div className="space-y-6">
                         {/* Title Field */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="dark:text-gray-300 block text-sm font-semibold text-gray-700 mb-2">
                                 Title <span className="text-red-500">*</span>
                             </label>
                             <input
@@ -154,7 +154,7 @@ export default function CreateCoupon() {
 
                         {/* Code Field */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="dark:text-gray-300 block text-sm font-semibold text-gray-700 mb-2">
                                 Code <span className="text-red-500">*</span>
                             </label>
                             <input
@@ -169,14 +169,14 @@ export default function CreateCoupon() {
 
                         {/* Type Field */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="dark:text-gray-300 block text-sm font-semibold text-gray-700 mb-2">
                                 Type <span className="text-red-500">*</span>
                             </label>
                             <select
                                 name="type"
                                 value={formData.type}
                                 onChange={handleInputChange}
-                                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                                className="dark:bg-[#161c24] w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
                             >
                                 <option value="Percentage">Percentage</option>
                                 <option value="Fixed Amount">Fixed Amount</option>
@@ -185,7 +185,7 @@ export default function CreateCoupon() {
 
                         {/* Amount Field */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="dark:text-gray-300 block text-sm font-semibold text-gray-700 mb-2">
                                 Amount <span className="text-red-500">*</span>
                             </label>
                             <input
@@ -207,7 +207,7 @@ export default function CreateCoupon() {
 
                         {/* Status Toggle */}
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="dark:text-gray-300 block text-sm font-semibold text-gray-700 mb-2">
                                 Status
                             </label>
                             <div className="flex items-center gap-3">

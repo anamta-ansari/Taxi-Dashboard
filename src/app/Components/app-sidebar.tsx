@@ -39,6 +39,7 @@ import {
   Bell,
   CalendarCheck,
   Users,
+  Flame,
 
 } from "lucide-react";
 
@@ -54,6 +55,21 @@ const items = [
     children: [
       { title: "Services", url: "/cab/services" },
       { title: "Vehicles", url: "/cab/vehicles" },
+    ],
+  },
+    {
+    title: "Rides",
+    dropdown: true,
+    icon: Map,
+    children: [
+      { title: "All Rides", url: "/rides/all-rides" },
+      { title: "All Rides Requests", url: "/rides/all-rides-requests" },
+      { title: "Scheduled Rides", url: "/rides/scheduled-rides" },
+      { title: "Accepted Rides", url: "/rides/accepted-rides" },
+      { title: "Arrived Rides", url: "/rides/arrived-rides" },
+      // { title: "Started Rides", url: "/riders" },
+      { title: "Cancelled Rides", url: "/rides/cancelled-rides" },
+      { title: "Completed Rides", url: "/rides/completed-rides" },
     ],
   },
   {
@@ -73,22 +89,27 @@ const items = [
     icon: CarFront,
     children: [
       { title: "List", url: "/driver/list" },
-      { title: "Pending Verification", url: "/driver/pending-verification" },
+      // { title: "Pending Verification", url: "/driver/pending-verification" },
       { title: "Settings", url: "/driver/settings" },
     ],
   },
-  { title: "Dispatcher", url: "/dispatcher", icon: Rocket },
-  { title: "Fleets", url: "/fleets", icon: Building },
+  //{ title: "Dispatcher", url: "/dispatcher", icon: Rocket },
+  //{ title: "Fleets", url: "/fleets", icon: Building },
   { title: "Zones", url: "/zones", icon: LandPlot },
   { title: "Preference", url: "/preferences", icon: Settings2 },
-  { title: "Heat Map", url: "/heatmap", icon: Map },
-  { title: "SOS", url: "/sos", icon: Megaphone },
-  {
-    title: "Coupons",
-    icon: ReceiptText,
-    url: "/Coupons"
-  },
+  { title: "Heat Map", url: "/heatmap", icon: Flame },
     {
+    title: "SOS",
+    dropdown: true,
+    icon: Megaphone,
+    children: [
+      { title: "SOS", url: "/sos" },
+      { title: "SOS Alerts", url: "/sos-alerts" },
+    ],
+  },
+
+  {title: "Coupons",icon: ReceiptText,url: "/Coupons"},
+  {
     title: "Riders",
     dropdown: true,
     icon: Users,
@@ -117,20 +138,20 @@ const items = [
     ],
   },
 
-  { title: "Orders", url: "/orders", icon: BookOpenText },
+  //{ title: "Orders", url: "/orders", icon: BookOpenText },
   // { title: "Customers", url: "/customers", icon: CircleUser },
 
 
 
-  {
-    title: "Payout",
-    dropdown: true,
-    icon: CircleDollarSign,
-    children: [
-      { title: "Payout Methods", url: "/payout/payout-methods" },
-      { title: "Driver Payout", url: "/payout/driver-payout" },
-    ],
-  },
+  // {
+  //   title: "Payout",
+  //   dropdown: true,
+  //   icon: CircleDollarSign,
+  //   children: [
+  //     { title: "Payout Methods", url: "/payout/payout-methods" },
+  //     { title: "Driver Payout", url: "/payout/driver-payout" },
+  //   ],
+  // },
 
   {
     title: "Accounting",
@@ -144,7 +165,7 @@ const items = [
   },
 
 
-  { title: "Support", url: "/support", icon: Headphones },
+ // { title: "Support", url: "/support", icon: Headphones },
 
 
 
@@ -165,14 +186,21 @@ const items = [
   //   ],
   // },
 
-  { title: "Settings", url: "/settings", icon: FiSettings },
+  {
+    title: "General Settings", dropdown: true, children: [
+      { title: "Languages", url: "/general-settings/languages" },
+      { title: "Currencies", url: "/general-settings/currencies" },
+      { title: "Taxes", url: "/general-settings/taxes" },
+      { title: "Payment Method", url: "/general-settings/payment-method" },
+    ], icon: FiSettings
+  },
 ];
 
 export function AppSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar className="lg:fixed bg-white lg:top-20 lg:left-0 lg:h-[calc(100vh-5rem)] lg:w-65 w-full dark:bg-black shadow-none lg:shadow ">
+    <Sidebar className="lg:fixed bg-white lg:top-20 lg:left-0 pl-3  lg:h-[calc(100vh-5rem)] lg:w-65 w-full dark:bg-[#161c24] dark:border-gray-600 border ">
       <SidebarHeader />
 
       <SidebarContent>
@@ -181,34 +209,34 @@ export function AppSidebar() {
             Better Taxi
           </SidebarGroupLabel> */}
 
-          <SidebarGroupContent>
-            <SidebarMenu>
+          <SidebarGroupContent className="dark:bg-[#161c24] ">
+            <SidebarMenu className="space-y-1.5">
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   {/* DROPDOWN MENU */}
                   {item.dropdown ? (
-                    <details className="group mb-2">
+                    <details className="group">
                       <summary className="flex items-center justify-between gap-2 cursor-pointer py-2 px-2 rounded-md hover:text-blue-800">
-                        <span className="flex items-center gap-2 text-[14px] text-gray-500 dark:text-white">
-                          <item.icon className="text-[10px] dark:text-white" />
+                        <span className="flex items-center gap-2 text-[15px] text-gray-500 dark:text-white">
+                          <item.icon className="w-5 h-5 dark:text-white" />
                           {item.title}
                         </span>
                         <FiChevronDown className="transition-transform group-open:rotate-180" />
                       </summary>
 
                       {/* CHILD LINKS */}
-                      <div className="ml-6 mt-1">
-                        <ul className="space-y-2">
+                      <div className="ml-6 mt-2">
+                        <ul className="space-y-1.5">
                           {item.children.map((sub) => {
                             const active = pathname === sub.url;
                             return (
                               <li key={sub.title}>
                                 <a
                                   href={sub.url}
-                                  className={`block px-2 py-1 rounded-md text-[15px] dark:text-white
+                                  className={`block rounded-md text-[15px]
                                     ${active
-                                      ? "bg-blue-600 text-white font-medium"
-                                      : "text-gray-500 hover:text-blue-700"
+                                      ? "bg-blue-600 !bg-blue-600 text-white !text-white font-medium dark:text-white px-2 py-2 "
+                                      : "text-gray-500 hover:text-blue-700 dark:text-white px-2 py-1.5"
                                     }
                                   `}
                                 >
@@ -225,20 +253,20 @@ export function AppSidebar() {
                     <SidebarMenuButton asChild>
                       <a
                         href={item.url}
-                        className={`flex items-center gap-2 px-2 py-2 rounded-md transition-colors dark:text-white
+                        className={`flex items-center gap-2 rounded transition-colors
                           ${pathname === item.url
-                            ? "bg-blue-600 text-white"
-                            : "text-gray-500 hover:text-blue-700"
+                            ? "bg-blue-600 !bg-blue-600 text-white !text-white dark:text-white px-2 py-2 "
+                            : "text-gray-500 hover:text-blue-700 dark:text-white px-2 py-2"
                           }
                         `}
                       >
                         <item.icon
-                          className={`text-[14px] dark:text-white${pathname === item.url ? "text-white" : "text-gray-500"
+                          className={`w-5 h-5 dark:text-white ${pathname === item.url ? "text-white" : "text-gray-500"
                             }`}
                         />
 
                         <span
-                          className={`text-[14px] dark:text-white${pathname === item.url ? "text-white" : "text-gray-500"
+                          className={`text-[15px] dark:text-white ${pathname === item.url ? "text-white" : "text-gray-500"
                             }`}
                         >
                           {item.title}

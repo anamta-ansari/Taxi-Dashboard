@@ -33,10 +33,10 @@ export default function History() {
     : bookings.filter(booking => booking.status === activeTab);
 
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white dark:bg-[#161c24] rounded-xl shadow-sm p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-semibold text-gray-800">
+        <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-300">
           Booking History
         </h1>
 
@@ -52,31 +52,31 @@ export default function History() {
       <div className="flex flex-col-2 sm:flex gap-8 border-b mb-4 text-sm font-medium">
         <button 
           onClick={() => setActiveTab('all')}
-          className={`pb-3 ${activeTab === 'all' ? 'text-gray-800 border-b-2 border-orange-500' : 'text-gray-400'}`}
+          className={`pb-3 ${activeTab === 'all' ? 'text-gray-800 font-[20px] dark:text-gray-300 border-b-2 border-blue-500' : 'text-gray-400'}`}
         >
           All Trips
         </button>
         <button 
           onClick={() => setActiveTab('in-progress')}
-          className={`pb-3 ${activeTab === 'in-progress' ? 'text-gray-800 border-b-2 border-orange-500' : 'text-gray-400'}`}
+          className={`pb-3 ${activeTab === 'in-progress' ? ' font-[20px] dark:text-gray-300 text-gray-600 border-b-2 border-blue-500' : 'text-gray-400'}`}
         >
           In Progress
         </button>
         <button 
           onClick={() => setActiveTab('prebooking')}
-          className={`pb-3 hidden sm:block ${activeTab === 'prebooking' ? 'text-gray-800 border-b-2 border-orange-500' : 'text-gray-400'}`}
+          className={`pb-3 hidden sm:block ${activeTab === 'prebooking' ? 'font-[20px] dark:text-gray-300 text-gray-800 border-b-2 border-orange-500' : 'text-gray-400'}`}
         >
           Prebookings
         </button>
         <button 
           onClick={() => setActiveTab('completed')}
-          className={`pb-3 hidden sm:block ${activeTab === 'completed' ? 'text-gray-800 border-b-2 border-orange-500' : 'text-gray-400'}`}
+          className={`pb-3 hidden sm:block ${activeTab === 'completed' ? 'font-[20px] dark:text-gray-300 text-gray-800 border-b-2 border-orange-500' : 'text-gray-400'}`}
         >
           Completed
         </button>
         <button 
           onClick={() => setActiveTab('cancelled')}
-          className={`pb-3 hidden sm:block ${activeTab === 'cancelled' ? 'text-gray-800 border-b-2 border-orange-500' : 'text-gray-400'}`}
+          className={`pb-3 hidden sm:block ${activeTab === 'cancelled' ? 'font-[20px] dark:text-gray-300 text-gray-800 border-b-2 border-orange-500' : 'text-gray-400'}`}
         >
           Cancelled
         </button>
@@ -86,14 +86,14 @@ export default function History() {
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
-            <tr className="text-xs uppercase tracking-wider text-gray-400 border-b">
-              <th className="py-4 px-2 text-left font-medium">Date</th>
-              <th className="py-4 px-2 text-left font-medium">Time</th>
-              <th className="py-4 px-2 text-left font-medium">Taxi Company</th>
-              <th className="py-4 px-2 text-left font-medium">From</th>
-              <th className="py-4 px-2 text-left font-medium">To</th>
-              <th className="py-4 px-2 text-left font-medium">Payment</th>
-              <th className="py-4 px-2 text-right font-medium">Amount</th>
+            <tr className=" uppercase  text-gray-400 border-b">
+              <th className="py-4 px-2 text-left text-[16px] dark:text-gray-300">Date</th>
+              <th className="py-4 px-2 text-left text-[16px] dark:text-gray-300">Time</th>
+              <th className="py-4 px-2 text-left text-[16px] dark:text-gray-300">Taxi Company</th>
+              <th className="py-4 px-2 text-left text-[16px] dark:text-gray-300">From</th>
+              <th className="py-4 px-2 text-left text-[16px] dark:text-gray-300">To</th>
+              <th className="py-4 px-2 text-left text-[16px] dark:text-gray-300">Payment</th>
+              <th className="py-4 px-2 text-right text-[16px] dark:text-gray-300">Amount</th>
             </tr>
           </thead>
 
@@ -128,35 +128,7 @@ export default function History() {
         </table>
       </div>
 
-      {/* Footer / Pagination */}
-      <div className="flex items-center justify-between mt-4 text-sm text-gray-500">
-        <div className="flex items-center gap-2">
-          Items per page:
-          <button 
-            onClick={() => setItemsPerPage(10)}
-            className={`font-medium ${itemsPerPage === 10 ? 'text-gray-800' : 'text-gray-500'}`}
-          >
-            10
-          </button>
-          <button 
-            onClick={() => setItemsPerPage(20)}
-            className={`font-medium ${itemsPerPage === 20 ? 'text-gray-800' : 'text-gray-500'}`}
-          >
-            20
-          </button>
-          <button 
-            onClick={() => setItemsPerPage(30)}
-            className={`font-medium ${itemsPerPage === 30 ? 'text-gray-800' : 'text-gray-500'}`}
-          >
-            30
-          </button>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <button className="p-2 rounded hover:bg-gray-100">‹</button>
-          <button className="p-2 rounded hover:bg-gray-100">›</button>
-        </div>
-      </div>
+     
     </div>
   );
 }

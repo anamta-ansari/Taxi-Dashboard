@@ -27,20 +27,20 @@ export default function ALLUSERS() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#161c24] p-8">
       <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}
         <div className="mb-6">
           <div className="mb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
 
-            <div className="flex justify-between items-center">
-              <h1 className="text-2xl font-bold text-gray-800">Users</h1>
+            <div className="flex justify-between gap-5 ">
+              <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-300">Users</h1>
 
               <Button
                 variant="primary"
-                onClick={() => router.push('/users/add-users')}
-                className="flex items-center gap-2 sm:hidden"
+                onClick={() => router.push('/users/add-user')}
+                className="flex items-center gap-2 "
               >
                 <span>+</span> Add New
               </Button>
@@ -49,45 +49,45 @@ export default function ALLUSERS() {
             <div className="flex gap-2 sm:gap-2 sm:items-center sm:flex-row flex-row sm:justify-end justify-between">
 
 
-              <Button
+              {/* <Button
                 variant="primary"
                 onClick={() => router.push('/users/add-user')}
                 className="hidden sm:flex items-center gap-2"
               >
                 <span>+</span> Add New
-              </Button>
+              </Button> */}
 
-              <Button variant="secondary">
+              {/* <Button variant="secondary">
                 <span>↓</span> Export
               </Button>
 
               <Button variant="secondary">
                 <span>↑</span> Import
-              </Button>
+              </Button> */}
             </div>
           </div>
 
 
           <div className="flex gap-4 text-sm border-b">
-            <button className="pb-2 border-b-2 border-blue-600 text-blue-600 font-medium">
+            <button className="pb-2 dark:text-gray-300 border-b-2 border-blue-600 text-blue-600 font-medium">
               All ({user.length})
             </button>
-            <button className="pb-2 text-gray-600 hover:text-gray-800">
+            <button className="pb-2 dark:text-gray-300 text-gray-600 hover:text-gray-800">
               Active ({user.length})
             </button>
-            <button className="pb-2 text-gray-600 hover:text-gray-800">
+            <button className="pb-2 dark:text-gray-300 text-gray-600 hover:text-gray-800">
               Deactive (0)
             </button>
-            <button className="pb-2 text-gray-600 hover:text-gray-800">
+            <button className="pb-2 dark:text-gray-300 text-gray-600 hover:text-gray-800">
               Trash (0)
             </button>
           </div>
         </div>
 
         {/* TABLE */}
-        <div className="bg-white rounded-lg shadow">
+        <div className="bg-white dark:bg-[#161c24] rounded-lg shadow">
           <div className="flex items-center gap-4 px-1 py-3 border-b">
-            <select className="border rounded px-1 py-1 text-sm">
+            <select className="border dark:bg-[#161c24] rounded px-1 py-1 text-sm">
               <option>15</option>
               <option>25</option>
               <option>50</option>
@@ -116,22 +116,22 @@ export default function ALLUSERS() {
           {/* TABLE BODY */}
           <div className="overflow-x-auto">
             <table className="w-full min-w-max">
-              <thead className="bg-gray-50 border-b">
+              <thead className="bg-gray-50 dark:bg-[#161c24] border-b">
                 <tr>
                   <th className="px-4 py-3 text-left">
                     <input type="checkbox" className="rounded" />
                   </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Name </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Email </th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Role </th>
+                  <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Name </th>
+                  <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Email </th>
+                  <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Role </th>
                   {/* <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Status ▼</th> */}
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Created At </th>
+                  <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Created At </th>
                 </tr>
               </thead>
 
               <tbody>
                 {user.map((u) => (
-                  <tr key={u.id} className="border-b hover:bg-gray-50">
+                  <tr key={u.id} className="border-b ">
                     <td className="px-4 py-3">
                       <input type="checkbox" className="rounded" />
                     </td>
@@ -143,7 +143,7 @@ export default function ALLUSERS() {
                         </div>
 
                         <div>
-                          <div className=" text-gray-900">{u.name}</div>
+                          <div className=" text-gray-900 dark:text-gray-300">{u.name}</div>
                           <div className="flex gap-2 text-sm">
                             <button className="text-blue-600 text-[12px] hover:underline">Edit</button>
                             <span className="text-gray-400">|</span>
@@ -153,18 +153,12 @@ export default function ALLUSERS() {
                       </div>
                     </td>
 
-                    <td className="px-4 py-3 text-gray-700">{u.email}</td>
-                    <td className="px-4 py-3 text-gray-700">{u.role}</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">{u.email}</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">{u.role}</td>
 
-                    {/* <td className="px-4 py-3">
-        <span
-          className={`inline-block w-3 h-3  bg-gray-500 rounded-full ${
-            u.status === "active" ? "bg-green-500" : "bg-gray-400"
-          }`}
-        ></span>
-      </td> */}
+       
 
-                    <td className="px-4 py-3 text-gray-700">{u.createdAt}</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">{u.createdAt}</td>
                   </tr>
                 ))}
               </tbody>

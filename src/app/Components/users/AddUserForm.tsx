@@ -75,7 +75,7 @@ export const AddUserForm = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow p-6">
+    <div className="bg-white dark:bg-[#161c24] dark:border-gray-500 border rounded-lg shadow p-6">
       <h2 className="text-xl font-bold mb-6">Add User</h2>
 
       <div className="space-y-4 max-w-3xl">
@@ -130,7 +130,7 @@ export const AddUserForm = () => {
             name="role"
             value={formData.role}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 dark:bg-[#161c24] border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select Role</option>
             <option value="user">User</option>

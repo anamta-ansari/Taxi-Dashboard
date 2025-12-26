@@ -1,5 +1,5 @@
 import SosComponent from "../Components/sos"
-export default function dispatcher(){
+export default function SOS(){
     return(
         <>
     <SosComponent/>

@@ -18,29 +18,47 @@ interface VehicleTableProps {
   onToggleStatus: (id: string) => void
 }
 
-export default function VehicleTable({ vehicles, onEdit, onDelete, onToggleStatus }: VehicleTableProps) {
+/* 🔹 Emoji helper */
+const getVehicleEmoji = (name: string) => {
+  const type = name.toLowerCase()
+
+  if (type.includes("bike")) return "🏍️"
+  if (type.includes("car")) return "🚗"
+  if (type.includes("truck")) return "🚚"
+  if (type.includes("bus")) return "🚌"
+  if (type.includes("van")) return "🚐"
+
+  return "🚘"
+}
+
+export default function VehicleTable({
+  vehicles,
+  onEdit,
+  onDelete,
+  onToggleStatus,
+}: VehicleTableProps) {
   return (
-    <div className="bg-white rounded-lg border overflow-hidden">
+    <div className="bg-white rounded-lg border overflow-hidden dark:bg-[#161c24] dark:border-gray-600 border">
       <div className="overflow-x-auto">
         <table className="w-full">
-          <thead className="bg-gray-50 border-b">
+          <thead className="bg-gray-50 dark:bg-[#161c24] dark:border-gray-600 border border-b">
             <tr>
               <th className="w-12 px-6 py-3">
-                <input type="checkbox" className="w-4 h-4 rounded border-gray-300" />
+                <input type="checkbox" className="w-4 h-4 rounded  border-gray-300" />
               </th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+              <th className=" dark:text-gray-300 px-6 py-3 text-left text-sm font-medium text-gray-700">
                 Name ↕
               </th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="dark:text-gray-300 px-6 py-3 text-left text-sm font-medium text-gray-700">
                 Service
               </th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="dark:text-gray-300 px-6 py-3 text-left text-sm font-medium text-gray-700">
                 Service Categories
               </th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="dark:text-gray-300 px-6 py-3 text-left text-sm font-medium text-gray-700">
                 Status ↕
               </th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+              <th className="dark:text-gray-300 px-6 py-3 text-left text-sm font-medium text-gray-700">
                 Created At ↕
               </th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
@@ -48,6 +66,7 @@ export default function VehicleTable({ vehicles, onEdit, onDelete, onToggleStatu
               </th>
             </tr>
           </thead>
+
           <tbody className="divide-y divide-gray-200">
             {vehicles.length === 0 ? (
               <tr>
@@ -57,15 +76,22 @@ export default function VehicleTable({ vehicles, onEdit, onDelete, onToggleStatu
               </tr>
             ) : (
               vehicles.map((vehicle) => (
-                <tr key={vehicle.id} className="hover:bg-gray-50">
+                <tr key={vehicle.id} className="">
                   <td className="px-4 py-2">
                     <input type="checkbox" className="w-4 h-4 rounded border-gray-300" />
                   </td>
+
                   <td className="px-4 py-2">
                     <div className="flex items-center gap-3">
-                      <img src={vehicle.image} alt={vehicle.name} className="w-10 h-10 rounded object-cover" />
+                      {/* 🔹 Emoji instead of image */}
+                      <span className="w-10 h-10 flex dark:text-gray-300 items-center justify-center text-2xl">
+                        {getVehicleEmoji(vehicle.name)}
+                      </span>
+
                       <div>
-                        <div className="text-[14px] font-medium text-gray-900">{vehicle.name}</div>
+                        <div className="text-[14px] font-medium dark:text-gray-300 text-gray-900">
+                          {vehicle.name}
+                        </div>
                         <div className="flex items-center gap-2 mt-1">
                           <button
                             onClick={() => onEdit(vehicle.id)}
@@ -84,31 +110,39 @@ export default function VehicleTable({ vehicles, onEdit, onDelete, onToggleStatu
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-2 text-[14px] text-gray-700">{vehicle.service}</td>
-                  <td className="px-4 py-2 text-[14px] text-gray-700">
+
+                  <td className="px-4 py-2 dark:text-gray-300 text-[14px] text-gray-700">
+                    {vehicle.service}
+                  </td>
+
+                  <td className="px-4 py-2 dark:text-gray-300 text-[14px] text-gray-700">
                     {vehicle.serviceCategories.join(", ")}
                   </td>
+
                   <td className="px-4 py-2">
                     <button
                       onClick={() => onToggleStatus(vehicle.id)}
                       className={`w-10 h-6 flex items-center rounded-full transition 
-      ${vehicle.status ? "bg-blue-500" : "bg-gray-300"}`}
+                      ${vehicle.status ? "bg-blue-500" : "bg-gray-300"}`}
                     >
                       <span
                         className={`w-4 h-4 bg-white rounded-full shadow transform transition 
-        ${vehicle.status ? "translate-x-5" : "translate-x-1"}`}
+                        ${vehicle.status ? "translate-x-5" : "translate-x-1"}`}
                       ></span>
                     </button>
                   </td>
 
-                  <td className="px-4 py-2 text-[12px] text-gray-700">{vehicle.createdAt}</td>
+                  <td className="px-4 py-2 text-[12px] dark:text-gray-300 text-gray-700">
+                    {vehicle.createdAt}
+                  </td>
+
                   <td className="px-4 py-2">
                     <div className="flex items-center gap-2">
-                      <button className="p-2 hover:bg-gray-100 rounded">
-                        <Edit2 className="w-3 h-3 text-gray-600" />
+                      <button className="p-2  rounded">
+                        <Edit2 className="w-3 h-3 dark:text-gray-300 text-gray-600" />
                       </button>
-                      <button className="p-2 hover:bg-gray-100 rounded">
-                        <Zap className="w-3 h-3 text-gray-600" />
+                      <button className="p-2  rounded">
+                        <Zap className="w-3 h-3 dark:text-gray-300 text-gray-600" />
                       </button>
                     </div>
                   </td>
@@ -118,8 +152,6 @@ export default function VehicleTable({ vehicles, onEdit, onDelete, onToggleStatu
           </tbody>
         </table>
       </div>
-
-
     </div>
   )
 }

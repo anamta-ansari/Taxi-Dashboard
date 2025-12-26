@@ -131,10 +131,10 @@ export default function VehiclesPage() {
   }
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
+    <div className="p-6 bg-gray-50  dark:bg-[#161c24] dark:border-gray-600 border min-h-screen">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-semibold text-gray-900">Vehicle Types</h1>
+        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-300">Vehicle Types</h1>
         <button
           onClick={() => router.push("/cab/vehicles/create")}
           className="flex items-center gap-2 px-4 py-2 border-2 border-blue-600 text-blue-600 rounded hover:bg-blue-50 font-medium"
@@ -145,7 +145,7 @@ export default function VehiclesPage() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white border-b px-6 py-4 rounded-t-lg flex flex-col sm:flex-row items-center justify-between">
+      <div className="bg-white dark:bg-[#161c24] dark:border-gray-600 border border-b px-6 py-4 rounded-t-lg flex flex-col sm:flex-row items-center justify-between">
         <div className="flex items-center gap-6">
           <button
             onClick={() => setActiveFilter("all")}
@@ -203,14 +203,14 @@ export default function VehiclesPage() {
       </div>
 
       {/* Actions Bar */}
-      <div className="bg-white px-6 py-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-8 items-center gap-3 border-b">
-        <select className="px-3 py-1.5 border border-gray-300 rounded text-sm">
+      <div className="bg-white dark:bg-[#161c24] dark:border-gray-600 border px-6 py-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-8 items-center gap-3 border-b">
+        <select className="px-3 py-1.5 border dark:bg-[#161c24] border-gray-300 rounded text-sm">
           <option>15</option>
           <option>25</option>
           <option>50</option>
         </select>
 
-        <select className="px-3 py-1.5 border border-gray-300 rounded text-sm">
+        <select className="px-3 py-1.5 border dark:bg-[#161c24] border-gray-300 rounded text-sm">
           <option>Bulk actions</option>
           <option>Delete selected</option>
         </select>
@@ -225,7 +225,7 @@ export default function VehiclesPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-b-lg">
+      <div className="bg-white dark:bg-[#161c24] dark:border-gray-600 border rounded-b-lg">
         <VehicleTable
           vehicles={filteredVehicles}
           onEdit={handleEdit}

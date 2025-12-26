@@ -13,7 +13,7 @@ export default function UserDropdown() {
       {/* Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 bg-gray-50 dark:text-white dark:bg-black dark:border-gray-500 px-2 py-2 rounded-lg  hover:bg-gray-100 transition"
+        className="flex items-center gap-1 bg-gray-50 dark:text-white dark:bg-[#161c24] dark:border-gray-600 border px-2 py-2 rounded-lg  hover:bg-gray-100 transition"
       >
         <User className="text-[14px] text-gray-600 dark:text-white" />
         <div className="text-left leading-tight">

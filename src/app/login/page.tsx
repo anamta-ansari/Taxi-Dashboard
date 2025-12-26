@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -8,9 +9,9 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 w-auto">
   {/* LEFT SIDE */}
-  <div className="w-full md:w-1/2 flex flex-col justify-center items-center bg-gray-50 border-b md:border-b-0 md:border-r">
+  <div className="w-full md:w-1/2 flex flex-col justify-center items-center bg-gray-50 border-b md:border-b-0 md:border-r border-gray-200">
     <Image
       src="/assets/1.jpg"
       alt="Login Illustration"
@@ -18,7 +19,7 @@ export default function Login() {
       height={350}
     />
 
-    <h1 className="text-3xl font-semibold mt-6 text-center md:text-left">
+    <h1 className="text-3xl font-semibold mt-6 text-center md:text-left text-gray-700">
       Manage Everything in One Place
     </h1>
 
@@ -35,7 +36,7 @@ export default function Login() {
 
   {/* RIGHT SIDE */}
   <div className="w-full md:w-1/2 flex flex-col justify-center items-center bg-white px-8 md:px-16">
-    <h2 className="text-2xl font-semibold mb-2 text-center">
+    <h2 className="text-2xl text-gray-700 font-semibold mb-2 text-center">
       Welcome to BetterSuite Live Demo!
     </h2>
 
@@ -44,7 +45,7 @@ export default function Login() {
     </p>
 
     <form className="w-full max-w-md">
-      <label className="text-sm font-medium">User Name*</label>
+      <label className="text-sm font-medium text-gray-700">User Name*</label>
       <input
         type="text"
         className="w-full mt-1 mb-4 px-4 py-3 bg-gray-100 rounded-lg outline-none"
@@ -52,7 +53,7 @@ export default function Login() {
         onChange={(e) => setUsername(e.target.value)}
       />
 
-      <label className="text-sm font-medium">Password*</label>
+      <label className="text-sm font-medium text-gray-700">Password*</label>
       <input
         type="password"
         className="w-full mt-1 mb-4 px-4 py-3 bg-gray-100 rounded-lg outline-none"
@@ -60,9 +61,9 @@ export default function Login() {
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <div className="bg-blue-50 text-blue-700 text-sm px-4 py-3 rounded mb-4">
+      {/* <div className="bg-blue-50 text-blue-700 text-sm px-4 py-3 rounded mb-4">
         ℹ️ For demo mode, use admin/admin as credentials
-      </div>
+      </div> */}
 
       <button
         type="submit"
@@ -70,6 +71,9 @@ export default function Login() {
       >
         Login
       </button>
+       <p className=" text-blue-700 text-sm mt-5 rounded mb-4">
+        Don't have an account? <Link href="/signup"><span className="text-blue-500 underline">Sign up</span></Link>
+      </p>
     </form>
   </div>
 </div>

@@ -15,9 +15,9 @@ export default function OrdersTable() {
   ];
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border overflow-hidden">
+    <div className="bg-white dark:bg-[#161c24] dark:border-gray-600  rounded-2xl shadow-sm border overflow-hidden">
       {/* Table Header */}
-      <div className="grid grid-cols-5 gap-4 px-6 py-4 bg-gray-50 border-b font-medium text-gray-700 text-sm">
+      <div className="grid grid-cols-5 gap-4 px-6 py-4 bg-gray-50 dark:bg-[#161c24] dark:text-gray-300 border-b font-medium text-gray-700 text-sm">
         <div>ID</div>
         <div>Customer</div>
         <div>Scheduled for</div>
@@ -26,11 +26,11 @@ export default function OrdersTable() {
       </div>
 
       {/* Scrollable Table Body - Shows 4 rows at a time */}
-      <div className="overflow-y-auto max-h-[320px]">
+      <div className="overflow-y-auto dark:overflow-y-auto max-h-[320px]">
         {orders.map((order, idx) => (
           <div
             key={idx}
-            className="grid grid-cols-5 gap-4 px-6 py-4 border-b last:border-b-0 hover:bg-gray-50 transition"
+            className="grid grid-cols-5 gap-4 px-6 py-4 border-b last:border-b-0  transition"
           >
             {/* ID */}
             <div className="text-gray-600 text-sm">{order.id}</div>

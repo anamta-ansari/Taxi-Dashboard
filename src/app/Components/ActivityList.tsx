@@ -17,16 +17,16 @@ export default function ActivityList() {
   ];
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border overflow-hidden">
+    <div className="bg-white dark:bg-[#161c24] dark:border-gray-600 dark:text-gray-300 rounded-2xl shadow-sm border overflow-hidden">
       
       <div className="overflow-y-auto max-h-[320px]">
         {activities.map((activity, idx) => (
           <div
             key={idx}
-            className="grid grid-cols-3 gap-4 px-6 py-4 border-b last:border-b-0 hover:bg-gray-50 transition"
+            className="grid grid-cols-3 gap-4 px-6 py-4 border-b last:border-b-0  transition dark:text-gray-300"
           >
             {/* Time */}
-            <div className="text-[12px] text-gray-600">{activity.time}</div>
+            <div className="text-[12px] text-gray-600 dark:text-gray-300">{activity.time}</div>
 
             {/* Status */}
             <div>
@@ -36,7 +36,7 @@ export default function ActivityList() {
                   Under Investigation
                 </span>
               ) : (
-                <span className="inline-flex items-center gap-1.5 px-1 py-1 bg-yellow-50 text-yellow-700 rounded-full text-[10px]">
+                <span className="inline-flex items-center gap-1.5 px-1 py-1 dark:text-gray-300 bg-yellow-50 text-yellow-700 rounded-full text-[10px]">
                   <Loader className="w-4 h-4" />
                   {activity.status}
                 </span>
@@ -44,7 +44,7 @@ export default function ActivityList() {
             </div>
 
             {/* View Detail */}
-            <div className="text-[10px] text-gray-600">View Detail</div>
+            <div className="text-[10px] text-gray-600 dark:text-gray-300">View Detail</div>
           </div>
         ))}
       </div>

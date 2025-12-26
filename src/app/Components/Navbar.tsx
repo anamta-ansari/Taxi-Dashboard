@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { Menu, X, ChevronDown, CarFront, ReceiptText, Send, Tag, CalendarCheck, Bell } from "lucide-react";
+import { Menu, X, ChevronDown, CarFront, ReceiptText, Send, Tag, CalendarCheck, Bell, Users } from "lucide-react";
 import UserDropdown from "./UserDropdown";
 import { ThemeToggleButton } from "./ThemeToggleButton";
 import { usePathname } from "next/navigation";
@@ -22,6 +22,7 @@ import {
   Car,
   Map,
   LandPlot,
+  Flame
 
 } from "lucide-react";
 
@@ -47,6 +48,21 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
       { title: "Vehicles", url: "/cab/vehicles" },
     ],
   },
+    {
+    title: "Rides",
+    dropdown: true,
+    icon: Map,
+    children: [
+      { title: "All Rides", url: "/rides/all-rides" },
+      { title: "All Rides Requests", url: "/rides/all-rides-requests" },
+      { title: "Scheduled Rides", url: "/rides/scheduled-rides" },
+      { title: "Accepted Rides", url: "/rides/accepted-rides" },
+      { title: "Arrived Rides", url: "/rides/arrived-rides" },
+      // { title: "Started Rides", url: "/riders" },
+      { title: "Cancelled Rides", url: "/rides/cancelled-rides" },
+      { title: "Completed Rides", url: "/rides/completed-rides" },
+    ],
+  },
   {
     title: "Users",
     dropdown: true,
@@ -64,24 +80,37 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
     icon: CarFront,
     children: [
       { title: "List", url: "/driver/list" },
-      { title: "Pending Verification", url: "/driver/pending-verification" },
+      // { title: "Pending Verification", url: "/driver/pending-verification" },
       { title: "Settings", url: "/driver/settings" },
     ],
   },
-  { title: "Dispatcher", url: "/dispatcher", icon: Rocket },
-  { title: "Fleets", url: "/fleets", icon: Building },
+  //{ title: "Dispatcher", url: "/dispatcher", icon: Rocket },
+  //{ title: "Fleets", url: "/fleets", icon: Building },
   { title: "Zones", url: "/zones", icon: LandPlot },
   { title: "Preference", url: "/preferences", icon: Settings2 },
-  { title: "Heat Map", url: "/heatmap", icon: Map },
-  { title: "SOS", url: "/sos", icon: Megaphone },
-  {
-    title: "Coupons",
-    icon: ReceiptText,
-    url: "/Coupons"
+  { title: "Heat Map", url: "/heatmap", icon: Flame },
+    {
+    title: "SOS",
+    dropdown: true,
+    icon: Megaphone,
+    children: [
+      { title: "SOS", url: "/sos" },
+      { title: "SOS Alerts", url: "/sos-alerts" },
+    ],
+  },
 
+  {title: "Coupons",icon: ReceiptText,url: "/Coupons"},
+  {
+    title: "Riders",
+    dropdown: true,
+    icon: Users,
+    children: [
+      { title: "All Riders", url: "/riders" },
+      { title: "Add Riders", url: "/riders/add-riders" },
+    ],
   },
   { title: "Surge Price", url: "/surge-price", icon: Tag },
- {
+  {
     title: "Book trip",
     dropdown: true,
     icon: CalendarCheck,
@@ -100,29 +129,20 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
     ],
   },
 
-  { title: "Orders", url: "/orders", icon: BookOpenText },
-  { title: "Customers", url: "/customers", icon: CircleUser },
+  //{ title: "Orders", url: "/orders", icon: BookOpenText },
+  // { title: "Customers", url: "/customers", icon: CircleUser },
 
-  {
-    title: "Marketing",
-    dropdown: true,
-    icon: ChartPie,
-    children: [
-      { title: "Coupons", url: "/marketing/coupons" },
-      { title: "Gift Cards", url: "/marketing/giftcards" },
-      { title: "Annoucements", url: "/marketing/annoucements" },
-    ],
-  },
 
-  {
-    title: "Payout",
-    dropdown: true,
-    icon: CircleDollarSign,
-    children: [
-      { title: "Payout Methods", url: "/payout/payout-methods" },
-      { title: "Driver Payout", url: "/payout/driver-payout" },
-    ],
-  },
+
+  // {
+  //   title: "Payout",
+  //   dropdown: true,
+  //   icon: CircleDollarSign,
+  //   children: [
+  //     { title: "Payout Methods", url: "/payout/payout-methods" },
+  //     { title: "Driver Payout", url: "/payout/driver-payout" },
+  //   ],
+  // },
 
   {
     title: "Accounting",
@@ -136,7 +156,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   },
 
 
-  { title: "Support", url: "/support", icon: Headphones },
+ // { title: "Support", url: "/support", icon: Headphones },
 
 
 
@@ -157,14 +177,21 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   //   ],
   // },
 
-  { title: "Settings", url: "/settings", icon: FiSettings },
+  {
+    title: "General Settings", dropdown: true, children: [
+      { title: "Languages", url: "/general-settings/languages" },
+      { title: "Currencies", url: "/general-settings/currencies" },
+      { title: "Taxes", url: "/general-settings/taxes" },
+      { title: "Payment Method", url: "/general-settings/payment-method" },
+    ], icon: FiSettings
+  },
 ];
 
 
   return (
     <>
- <nav className="fixed top-0 left-0 right-0 z-50 bg-white border border-b-1 dark:border-b-gray-500 dark:bg-black dark:text-white">
-  <div className="flex justify-between items-center px-4 sm:px-6 lg:px-8 h-16 sm:h-20 max-w-7xl mx-auto w-full">
+ <nav className="fixed top-0 left-0 right-0 z-50 bg-white border border-b-1 dark:border-b-gray-600 dark:bg-[#161c24] dark:text-white">
+  <div className="flex justify-between items-center px-4 sm:px-6 lg:px-8 h-18 sm:h-20 max-w-7xl mx-auto w-full">
     {/* Left Side */}
     <div className="flex items-center gap-3 min-w-0">
       <button 

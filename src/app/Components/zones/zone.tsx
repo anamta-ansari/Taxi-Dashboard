@@ -71,14 +71,14 @@ export default function Zones() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen dark:bg-[#161c24] bg-gray-50">
       {/* Header */}
-      <div className="bg-white border-b px-6 py-4">
+      <div className="bg-white dark:bg-[#161c24] border-b px-6 py-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-semibold text-gray-900">Zones</h1>
+          <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-300">Zones</h1>
           <button
             onClick={() => router.push("/zones/create")}
-            className="flex items-center gap-2 px-4 py-2 border-2 border-blue-600 text-blue-600 rounded hover:bg-blue-50 font-medium"
+            className="flex items-center gap-2 px-4 py-2 border-2 border-blue-600 text-white bg-blue-500 rounded hover:bg-blue-550 font-medium"
           >
             <span className="text-lg">+</span>
             Add Zone
@@ -86,102 +86,67 @@ export default function Zones() {
         </div>
       </div>
 
-      {/* Filters */}
-      <div className="bg-white border-b px-6 py-4">
-        <div className="flex flex-col sm:flex-row items-center justify-between">
-          <div className="flex items-center gap-6">
-            <button
-              onClick={() => setActiveFilter("all")}
-              className={`text-sm ${activeFilter === "all"
-                  ? "text-gray-900 font-medium border-b-2 border-gray-900 pb-1"
-                  : "text-gray-500"
-                }`}
-            >
-              All ({allCount})
-            </button>
-            <button
-              onClick={() => setActiveFilter("active")}
-              className={`text-sm ${activeFilter === "active"
-                  ? "text-gray-900 font-medium border-b-2 border-gray-900 pb-1"
-                  : "text-gray-500"
-                }`}
-            >
-              Active ({activeCount})
-            </button>
-            <button
-              onClick={() => setActiveFilter("deactive")}
-              className={`text-sm ${activeFilter === "deactive"
-                  ? "text-gray-900 font-medium border-b-2 border-gray-900 pb-1"
-                  : "text-gray-500"
-                }`}
-            >
-              Deactive ({deactiveCount})
-            </button>
-          </div>
-          <div className="flex items-center gap-2 pt-3">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9 pr-4 py-1.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-blue-500"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Actions Bar */}
-      <div className="bg-white px-6 py-3 border-b flex flex-col sm:flex-row sm:items-center sm:gap-3 gap-3">
-
-        <div className="flex flex-col sm:flex-row sm:gap-3 gap-3 w-full">
-          <div className="relative w-full sm:w-auto">
-            <select
-              value={itemsPerPage}
-              onChange={(e) => setItemsPerPage(Number(e.target.value))}
-              className="appearance-none pl-3 pr-8 py-1.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-blue-500 w-full"
-            >
-              <option value={15}>15</option>
-              <option value={25}>25</option>
-              <option value={50}>50</option>
-              <option value={100}>100</option>
-            </select>
-            <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-          </div>
-
-          <div className="relative w-full sm:w-auto">
-            <select className="appearance-none pl-3 pr-8 py-1.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-blue-500 w-full">
-              <option>Bulk actions</option>
-              <option>Delete selected</option>
-              <option>Activate selected</option>
-              <option>Deactivate selected</option>
-            </select>
-            <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-          </div>
-        </div>
-
-        <div className="w-full sm:w-auto mt-2 sm:mt-0">
-          <button className="px-4 py-1.5 border-2 border-blue-600 text-blue-600 rounded text-sm font-medium hover:bg-blue-50 w-full sm:w-auto">
-            Apply
-          </button>
-        </div>
-
-        {/* Items count */}
-        <div className="hidden sm:block ml-auto text-sm text-gray-600">
-          {filteredZones.length} Items
-        </div>
-
-      </div>
+       {/* Filters */}
+             <div className="bg-gray-50 dark:bg-[#161c24] p-4 mb-4">
+               {/* Tabs */}
+               <div className="flex gap-4 text-sm border-b mb-6">
+                 <button className="dark:text-gray-300 pb-2 border-b-2 border-blue-600 text-blue-600 font-medium">
+                   All
+                 </button>
+                 <button className="dark:text-gray-300 pb-2 text-gray-600 hover:text-gray-800">
+                   Active
+                 </button>
+                 <button className="dark:text-gray-300 pb-2 text-gray-600 hover:text-gray-800">
+                   Inactive
+                 </button>
+               </div>
+     
+               {/* Table Controls */}
+               <div className="flex flex-col sm:flex-row items-center gap-4 px-4 py-3 border-b">
+                 <div className="flex items-center gap-3">
+                   {/* Pagination Select */}
+                   <select className="border dark:bg-[#161c24] dark:border-gray-500 rounded px-2 py-2 text-sm appearance-none bg-white">
+                     <option>15</option>
+                     <option>25</option>
+                     <option>50</option>
+                   </select>
+     
+                   {/* Bulk Actions Select */}
+                   <div className="relative">
+                     <select className="border dark:bg-[#161c24] dark:border-gray-500 rounded px-2 py-2 text-sm appearance-none bg-white pr-8">
+                       <option>Bulk actions</option>
+                       <option>Activate</option>
+                       <option>Deactivate</option>
+                       <option>Delete</option>
+                     </select>
+                     <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                   </div>
+     
+                   <button className="bg-blue-500 text-white px-3 py-2 rounded text-sm hover:bg-blue-600 transition-colors">
+                     Apply
+                   </button>
+                 </div>
+     
+                 <div className=" sm:ml-auto flex items-center gap-1">
+                   <input
+                     type="search"
+                     placeholder="Search"
+                     className="border rounded px-2 py-2 text-sm"
+                   />
+                   <button className="px-2 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">
+                     Search
+                   </button>
+                 </div>
+               </div>
+             </div>
 
 
       {/* Table */}
-      <div className="bg-white mx-6 my-4 rounded-lg border overflow-hidden">
+      <div className="bg-white dark:bg-[#161c24] mx-6 my-4 rounded-lg border overflow-hidden">
 
         <div className="overflow-x-auto w-full">
           <table className="min-w-max w-full border-collapse text-left">
-            <thead className="bg-gray-50 border-b">
+            <thead className="bg-gray-50 dark:bg-[#161c24] border-b">
               <tr>
                 <th className="w-12 px-6 py-3">
                   <input
@@ -192,31 +157,31 @@ export default function Zones() {
                   />
                 </th>
                 <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
-                  <div className="flex items-center gap-1">
+                  <div className="flex dark:text-gray-300 items-center gap-1">
                     Name
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </th>
                 <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
-                  <div className="flex items-center gap-1">
+                  <div className="flex dark:text-gray-300 items-center gap-1">
                     Currency
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </th>
                 <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
-                  <div className="flex items-center gap-1">
+                  <div className="flex dark:text-gray-300 items-center gap-1">
                     Distance Type
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </th>
                 <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
-                  <div className="flex items-center gap-1">
+                  <div className="flex dark:text-gray-300 items-center gap-1">
                     Status
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </th>
                 <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
-                  <div className="flex items-center gap-1">
+                  <div className="flex dark:text-gray-300 items-center gap-1">
                     Created At
                     <ChevronDown className="w-4 h-4" />
                   </div>
@@ -232,7 +197,7 @@ export default function Zones() {
                 </tr>
               ) : (
                 filteredZones.map((zone) => (
-                  <tr key={zone.id} className="hover:bg-gray-50">
+                  <tr key={zone.id} className="">
                     <td className="px-6 py-4">
                       <input
                         type="checkbox"
@@ -242,7 +207,7 @@ export default function Zones() {
                       />
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-sm text-gray-900">{zone.name}</div>
+                      <div className="text-sm text-gray-900 dark:text-gray-300">{zone.name}</div>
                       <div className="flex items-center gap-3 mt-1">
                         <button
                           onClick={() => router.push(`/zones/${zone.id}/edit`)}
@@ -258,10 +223,10 @@ export default function Zones() {
                         </button>
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-700">
+                    <td className="dark:text-gray-300 px-6 py-4 text-sm text-gray-700">
                       {zone.currency}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-700">
+                    <td className="dark:text-gray-300 px-6 py-4 text-sm text-gray-700">
                       {zone.distanceType}
                     </td>
                     <td className="px-6 py-4">
@@ -282,7 +247,7 @@ export default function Zones() {
                         />
                       </button>
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-700">
+                    <td className="dark:text-gray-300 px-6 py-4 text-sm text-gray-700">
                       {zone.createdAt}
                     </td>
                   </tr>

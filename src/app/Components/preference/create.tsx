@@ -114,15 +114,15 @@ function CreatePreferenceContent() {
     <>
       <div className="min-h-screen ">
         <div className="max-w-7xl mx-auto p-6">
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h1 className="text-2xl font-semibold text-gray-800 mb-8">
+          <div className="bg-white dark:bg-[#161c24] dark:border-gray-500 border rounded-lg shadow-sm p-6">
+            <h1 className="text-2xl font-semibold text-gray-800 mb-8 dark:text-gray-300">
               {isEditing ? 'Edit Preference ' : 'Add Preference'}
             </h1>
             
             <div className="space-y-6">
               {/* Image Upload */}
               <div className="flex items-start gap-4">
-                <label className="text-gray-700 font-medium w-32 pt-2">
+                <label className="text-gray-700 dark:text-gray-300 font-medium w-32 pt-2">
                   Image<span className="text-red-500">*</span>
                 </label>
                 <div className="flex-1">
@@ -161,7 +161,7 @@ function CreatePreferenceContent() {
 
               {/* Name Input */}
               <div className="flex items-center gap-0 sm:gap-4">
-                <label className="text-gray-700 font-medium w-32">
+                <label className="text-gray-700 dark:text-gray-300 font-medium w-32">
                   Name<span className="text-red-500">*</span>
                 </label>
                 <input
@@ -175,7 +175,7 @@ function CreatePreferenceContent() {
 
               {/* Status Toggle */}
               <div className="flex items-center gap-4">
-                <label className="text-gray-700 font-medium w-32">Status</label>
+                <label className="text-gray-700 font-medium w-32 dark:text-gray-300">Status</label>
                 <button
                   onClick={() => setFormData({ ...formData, status: !formData.status })}
                   className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${

@@ -120,8 +120,8 @@ export default function Services() {
   };
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-2xl font-semibold mb-6 text-gray-800">Services</h1>
+    <div className="p-6 bg-gray-50 dark:bg-[#161c24] dark:border-gray-600 border min-h-screen">
+      <h1 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-300">Services</h1>
 
       {/* Tabs and Search */}
       <div className="flex flex-col sm:flex-row py-2 items-start justify-between mb-4">
@@ -142,13 +142,13 @@ export default function Services() {
         </div>
 
         {/* Search Input */}
-        <div className="flex  sm:w-auto border mt-2 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 transition-colors">
+        <div className="flex dark:text-gray-300  sm:w-auto border mt-2 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 transition-colors">
           <input
             type="text"
             placeholder="Search"
             className="px-3 py-2 w-64 text-sm focus:outline-none"
           />
-          <button className="bg-white text-gray-500 py-2 px-1 hover:text-blue-600  border-l">
+          <button className="bg-white dark:bg-[#161c24] text-gray-500 py-2 px-1 hover:text-blue-600  border-l">
             <Search className="w-4 h-4 " />
           </button>
         </div>
@@ -160,7 +160,7 @@ export default function Services() {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           {/* Pagination Select */}
-          <select className="border rounded px-3 py-2 text-sm appearance-none bg-white">
+          <select className="border rounded px-3 py-2 text-sm appearance-none dark:bg-[#161c24] dark:border-gray-600 border bg-white">
             <option>15</option>
             <option>25</option>
             <option>50</option>
@@ -168,7 +168,7 @@ export default function Services() {
 
           {/* Bulk Actions Select */}
           <div className="relative">
-            <select className="border rounded px-3 py-2 text-sm appearance-none bg-white pr-8">
+            <select className="border rounded px-3 py-2 text-sm appearance-none bg-white pr-8 dark:bg-[#161c24] dark:border-gray-600 border">
               <option>Bulk actions</option>
               <option>Activate</option>
               <option>Deactivate</option>
@@ -189,10 +189,10 @@ export default function Services() {
       </div>
 
       {/* Table */}
-      <div className="bg-white shadow-lg rounded-lg overflow-x-auto">
+      <div className="bg-white dark:bg-[#161c24] dark:border-gray-600 border  shadow-lg rounded-lg overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200 text-sm">
           {/* Table Header  */}
-          <thead className="bg-gray-50">
+          <thead className="bg-gray-50 dark:bg-[#161c24] dark:border-gray-600 border dark:text-gray-300">
             <tr><th className="px-3 py-3 w-10">
               <button onClick={toggleSelectAll} className="text-gray-500 hover:text-blue-600">
                 {selectedServices.length === filteredServices.length && filteredServices.length > 0 ? (
@@ -207,7 +207,7 @@ export default function Services() {
               {['Title', 'Type', 'Status', 'Created At'].map(header => (
                 <th
                   key={header}
-                  className="px-4 py-3 text-left font-semibold text-gray-600 uppercase tracking-wider cursor-pointer hover:text-blue-600"
+                  className="px-4 py-3 text-left font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider cursor-pointer hover:text-blue-600"
                 >
                   <div className="flex items-center gap-1">
                     {header}
@@ -220,11 +220,11 @@ export default function Services() {
           </thead>
 
           {/* Table Body  */}
-          <tbody className="bg-white divide-y divide-gray-100">
+          <tbody className="bg-white divide-y  dark:bg-[#161c24] dark:border-gray-600 dark:text-gray-300 border">
             {filteredServices.map((service) => (
               <tr
                 key={service.id}
-                className={`hover:bg-gray-50 ${selectedServices.includes(service.id) ? 'bg-emerald-50/50' : ''}`}
+                className={`${selectedServices.includes(service.id) ? 'bg-emerald-50/50' : ''}`}
               >
                 {/* Selection Checkbox */}
                 <td className="px-3 py-3">
@@ -239,7 +239,7 @@ export default function Services() {
                 {/* Title and Image */}
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-3">
-                    <div className="relative w-10 h-10 flex-shrink-0 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="relative w-10 h-10 flex-shrink-0 bg-gray-100 dark:bg-[#161c24] dark:border-gray-600 border rounded-full overflow-hidden">
                       <Image
                         src={service.img}
                         alt={service.title}
@@ -249,10 +249,10 @@ export default function Services() {
                       />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-800">{service.title}</p>
+                      <p className="font-medium text-gray-800 dark:text-gray-300">{service.title}</p>
                       <Link
                         href={`/services/edit/${service.id}`}
-                        className="text-blue-600 text-xs hover:text-blue-800 transition-colors"
+                        className="text-blue-600 text-xs hover:text-blue-800 transition-colors dark:text-gray-300"
                       >
                         Edit
                       </Link>
@@ -261,7 +261,7 @@ export default function Services() {
                 </td>
 
                 {/* Type */}
-                <td className="px-4 py-3 text-gray-600">
+                <td className="px-4 py-3 text-gray-600 dark:text-gray-300">
                   {service.type}
                 </td>
 
@@ -271,13 +271,13 @@ export default function Services() {
                 </td>
 
                 {/* Created At */}
-                <td className="px-4 py-3 text-gray-500 whitespace-nowrap">
+                <td className="px-4 py-3 text-gray-500 whitespace-nowrap dark:text-gray-300">
                   {service.createdAt}
                 </td>
 
                 {/* Actions */}
                 <td className="px-4 py-3 text-right">
-                  <button className="text-gray-500 hover:text-blue-600">
+                  <button className="text-gray-500 hover:text-blue-600 dark:text-gray-300">
                     <MoreVertical className="w-4 h-4" />
                   </button>
                 </td>

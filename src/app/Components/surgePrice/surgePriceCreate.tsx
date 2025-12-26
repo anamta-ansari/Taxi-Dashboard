@@ -121,14 +121,14 @@ export default function CreateSurgePrice() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-50 p-8 dark:bg-[#161c24]">
       <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-lg shadow p-6">
-          <h1 className="text-2xl font-semibold mb-6">Add Surge Price</h1>
+        <div className="bg-white rounded-lg shadow p-6 dark:bg-[#161c24] dark:border-gray-500 border ">
+          <h1 className="text-2xl font-semibold mb-6 dark:text-gray-300">Add Surge Price</h1>
 
           {/* Start Date */}
           <div className="mb-4">
-            <label className="block mb-2 font-medium text-gray-700">
+            <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
               Start Date <span className="text-red-500">*</span>
             </label>
             <input
@@ -150,7 +150,7 @@ export default function CreateSurgePrice() {
 
           {/* End Date */}
           <div className="mb-4">
-            <label className="block mb-2 font-medium text-gray-700">
+            <label className="dark:text-gray-300 block mb-2 font-medium text-gray-700">
               End Date <span className="text-red-500">*</span>
             </label>
             <input
@@ -172,7 +172,7 @@ export default function CreateSurgePrice() {
 
           {/* Days Dropdown */}
           <div className="mb-4">
-            <label className="block mb-2 font-medium text-gray-700">
+            <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
               Select Day <span className="text-red-500">*</span>
             </label>
             <select
@@ -200,7 +200,7 @@ export default function CreateSurgePrice() {
 
           {/* Status Toggle */}
           <div className="mb-6">
-            <label className="block mb-2 font-medium text-gray-700">Status</label>
+            <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">Status</label>
             <div className="flex items-center gap-3">
               <button
                 type="button"

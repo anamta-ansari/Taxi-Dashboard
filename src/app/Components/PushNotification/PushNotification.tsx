@@ -83,12 +83,12 @@ export default function PushNotification() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 p-8">
+        <div className="min-h-screen bg-gray-50 p-8 dark:bg-[#161c24]">
             <div className="max-w-7xl mx-auto">
                 {/* HEADER */}
                 <div className="mb-6">
                     <div className="mb-4 flex justify-between items-center">
-                        <h1 className="text-[28px] font-bold text-gray-800">Push Notifications</h1>
+                        <h1 className="text-[28px] font-bold text-gray-800 dark:text-gray-300">Push Notifications</h1>
                         <Button
                             onClick={() => router.push('/push-notification/create')}
                             className="flex items-center gap-1 font-normal"
@@ -106,12 +106,12 @@ export default function PushNotification() {
                 </div>
 
                 {/* TABLE */}
-                <div className="bg-white rounded-lg shadow">
+                <div className="bg-white dark:bg-[#161c24] rounded-lg shadow">
                     {/* Table Controls */}
                     <div className="flex flex-col sm:flex-row items-center gap-4 px-4 py-3 border-b">
                         <div className="flex items-center gap-3">
                             {/* Pagination Select */}
-                            <select className="border rounded px-3 py-2 text-sm appearance-none bg-white">
+                            <select className="border dark:bg-[#161c24] dark:border-gray-500 rounded px-3 py-2 text-sm appearance-none bg-white">
                                 <option>15</option>
                                 <option>25</option>
                                 <option>50</option>
@@ -119,7 +119,7 @@ export default function PushNotification() {
 
                             {/* Bulk Actions Select */}
                             <div className="relative">
-                                <select className="border rounded px-3 py-2 text-sm appearance-none bg-white pr-8">
+                                <select className="border dark:bg-[#161c24] dark:border-gray-500 rounded px-3 py-2 text-sm appearance-none bg-white pr-8">
                                     <option>Bulk actions</option>
                                     <option>Activate</option>
                                     <option>Deactivate</option>
@@ -149,16 +149,16 @@ export default function PushNotification() {
                     {/* TABLE BODY */}
                     <div className="overflow-x-auto">
                         <table className="w-full">
-                            <thead className="bg-gray-50 border-b">
+                            <thead className="bg-gray-50 border-b dark:bg-[#161c24] dark:border-gray-500">
                                 <tr>
                                     <th className="px-4 py-3 text-left">
                                         <input type="checkbox" className="rounded" />
                                     </th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Title</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Send Push Notification</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Scheduled</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Scheduled At</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Created At</th>
+                                    <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Title</th>
+                                    <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Send Push Notification</th>
+                                    <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Scheduled</th>
+                                    <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Scheduled At</th>
+                                    <th className="dark:text-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Created At</th>
                                 </tr>
                             </thead>
 
