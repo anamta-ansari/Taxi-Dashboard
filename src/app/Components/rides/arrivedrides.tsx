@@ -9,8 +9,7 @@ import { CircleUser } from "lucide-react";
 import Link from "next/link"
 
 
-// =====================================================
-// FINAL PAGE → ONLY ONE EXPORT
+
 // =====================================================
 
 export default function ARRIVEDRIDES() {
