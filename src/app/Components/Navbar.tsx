@@ -196,12 +196,12 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
     <div className="flex items-center gap-3 min-w-0">
       <button 
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-        className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors flex-shrink-0"
+        className="lg:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors flex-shrink-0"
       >
         {mobileMenuOpen ? (
-          <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
+          <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300" />
         ) : (
-          <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
+          <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300" />
         )}
       </button>
       <h1 className="hidden lg:block text-2xl font-bold text-gray-800 whitespace-nowrap dark:text-white">BetterSuite</h1>
@@ -223,18 +223,18 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
             className="fixed inset-0 bg-black/50 z-40 lg:hidden" 
             onClick={() => setMobileMenuOpen(false)} 
           />
-          <div className="fixed top-16 sm:top-20 left-0 right-0 bottom-0 bg-white z-50 lg:hidden overflow-y-auto">
-            <div className="p-4">
-              <h2 className="text-lg font-bold mb-4 text-gray-800">Menu</h2>
+          <div className="fixed top-16 sm:top-20 left-0 right-0 bottom-0 bg-white dark:bg-[#161c24] z-50 lg:hidden overflow-y-auto">
+            <div className="p-4 dark:bg-[#161c24]">
+              <h2 className="text-lg font-bold mb-4 text-gray-800 dark:text-gray-300">Menu</h2>
               <div className="space-y-2">
                 {menuItems.map((item) => {
                   const Icon = item.icon;
                   if (item.dropdown) {
                     return (
                       <details key={item.title} className="group">
-                        <summary className="flex items-center justify-between gap-2 cursor-pointer py-3 px-3 rounded-md hover:bg-gray-100 transition-colors">
-                          <span className="flex items-center gap-3 text-base text-gray-800">
-                            <Icon className="text-lg flex-shrink-0" />
+                        <summary className="flex items-center justify-between gap-2 cursor-pointer py-3 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                          <span className="flex items-center gap-3 text-base text-gray-800 dark:text-gray-300">
+                            <Icon className="text-[16px] flex-shrink-0" />
                             {item.title}
                           </span>
                           <ChevronDown className="w-4 h-4 transition-transform group-open:rotate-180 flex-shrink-0" />
@@ -246,8 +246,8 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
                               href={sub.url} 
                               onClick={() => setMobileMenuOpen(false)} 
                               className={pathname === sub.url 
-                                ? "block py-2 px-3 rounded-md text-sm text-blue-600 font-semibold bg-blue-50" 
-                                : "block py-2 px-3 rounded-md text-sm text-gray-700 hover:bg-gray-100 transition-colors capitalize"
+                                ? "block py-2 px-3 rounded-md text-sm text-blue-600 font-semibold bg-blue-50 dark:bg-blue-900 dark:text-blue-300" 
+                                : "block py-2 px-3 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors capitalize"
                               }
                             >
                               • {sub.title}
@@ -264,10 +264,10 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
                         onClick={() => setMobileMenuOpen(false)} 
                         className={pathname === item.url 
                           ? "flex items-center gap-3 py-3 px-3 rounded-md text-base bg-blue-600 text-white font-medium" 
-                          : "flex items-center gap-3 py-3 px-3 rounded-md text-base text-gray-800 hover:bg-gray-100 transition-colors"
+                          : "flex items-center gap-3 py-3 px-3 rounded-md text-base text-gray-800 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                         }
                       >
-                        <Icon className="text-lg flex-shrink-0" />
+                        <Icon className="text-[16px] flex-shrink-0" />
                         {item.title}
                       </a>
                     );

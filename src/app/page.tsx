@@ -79,7 +79,7 @@ export default function Home() {
             {/* Content */}
             <div>
               <p className="text-cyan-600 bg-cyan-100 py-1 px-2 inline-block font-medium text-sm mb-2 rounded">
-                Total Service Zone
+                Total Services Zone
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900">167</h2>

@@ -142,7 +142,7 @@ export default function Services() {
         </div>
 
         {/* Search Input */}
-        <div className="flex dark:text-gray-300  sm:w-auto border mt-2 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 transition-colors">
+        <div className="flex dark:text-gray-300 dark:border-gray-500 border  sm:w-auto border mt-2 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 transition-colors">
           <input
             type="text"
             placeholder="Search"

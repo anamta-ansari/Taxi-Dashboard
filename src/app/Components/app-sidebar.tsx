@@ -39,7 +39,6 @@ import {
   Bell,
   CalendarCheck,
   Users,
-  Flame,
 
 } from "lucide-react";
 
@@ -60,7 +59,7 @@ const items = [
     {
     title: "Rides",
     dropdown: true,
-    icon: Map,
+    icon: Users,
     children: [
       { title: "All Rides", url: "/rides/all-rides" },
       { title: "All Rides Requests", url: "/rides/all-rides-requests" },
@@ -89,7 +88,7 @@ const items = [
     icon: CarFront,
     children: [
       { title: "List", url: "/driver/list" },
-      // { title: "Pending Verification", url: "/driver/pending-verification" },
+      { title: "Pending Verification", url: "/driver/pending-verification" },
       { title: "Settings", url: "/driver/settings" },
     ],
   },
@@ -97,17 +96,8 @@ const items = [
   //{ title: "Fleets", url: "/fleets", icon: Building },
   { title: "Zones", url: "/zones", icon: LandPlot },
   { title: "Preference", url: "/preferences", icon: Settings2 },
-  { title: "Heat Map", url: "/heatmap", icon: Flame },
-    {
-    title: "SOS",
-    dropdown: true,
-    icon: Megaphone,
-    children: [
-      { title: "SOS", url: "/sos" },
-      { title: "SOS Alerts", url: "/sos-alerts" },
-    ],
-  },
-
+  { title: "Heat Map", url: "/heatmap", icon: Map },
+  { title: "SOS", url: "/sos", icon: Megaphone },
   {title: "Coupons",icon: ReceiptText,url: "/Coupons"},
   {
     title: "Riders",
@@ -191,7 +181,6 @@ const items = [
       { title: "Languages", url: "/general-settings/languages" },
       { title: "Currencies", url: "/general-settings/currencies" },
       { title: "Taxes", url: "/general-settings/taxes" },
-      { title: "Payment Method", url: "/general-settings/payment-method" },
     ], icon: FiSettings
   },
 ];
@@ -200,43 +189,43 @@ export function AppSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar className="lg:fixed bg-white lg:top-20 lg:left-0 pl-3  lg:h-[calc(100vh-5rem)] lg:w-65 w-full dark:bg-[#161c24] dark:border-gray-600 border ">
+    <Sidebar className="lg:fixed bg-white lg:top-20 lg:left-0 lg:h-[calc(100vh-5rem)] lg:w-65 w-full dark:bg-black shadow-none lg:shadow ">
       <SidebarHeader />
 
-      <SidebarContent>
+      <SidebarContent className="[&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full dark:[&::-webkit-scrollbar-thumb]:bg-[#161c24] dark:[&::-webkit-scrollbar-thumb]:border dark:[&::-webkit-scrollbar-thumb]:border-gray-500">
         <SidebarGroup>
           {/* <SidebarGroupLabel className="text-[18px] ml-3 mb-8 font-normal dark:text-white">
             Better Taxi
           </SidebarGroupLabel> */}
 
-          <SidebarGroupContent className="dark:bg-[#161c24] ">
-            <SidebarMenu className="space-y-1.5">
+          <SidebarGroupContent>
+            <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   {/* DROPDOWN MENU */}
                   {item.dropdown ? (
-                    <details className="group">
+                    <details className="group mb-2">
                       <summary className="flex items-center justify-between gap-2 cursor-pointer py-2 px-2 rounded-md hover:text-blue-800">
-                        <span className="flex items-center gap-2 text-[15px] text-gray-500 dark:text-white">
-                          <item.icon className="w-5 h-5 dark:text-white" />
+                        <span className="flex items-center gap-2 text-[14px] text-gray-500 dark:text-white">
+                          <item.icon className="w-4 h-4 dark:text-white" />
                           {item.title}
                         </span>
                         <FiChevronDown className="transition-transform group-open:rotate-180" />
                       </summary>
 
                       {/* CHILD LINKS */}
-                      <div className="ml-6 mt-2">
-                        <ul className="space-y-1.5">
+                      <div className="ml-6 mt-1">
+                        <ul className="space-y-2">
                           {item.children.map((sub) => {
                             const active = pathname === sub.url;
                             return (
                               <li key={sub.title}>
                                 <a
                                   href={sub.url}
-                                  className={`block rounded-md text-[15px]
+                                  className={`block px-2 py-1 rounded-md text-[15px]
                                     ${active
-                                      ? "bg-blue-600 !bg-blue-600 text-white !text-white font-medium dark:text-white px-2 py-2 "
-                                      : "text-gray-500 hover:text-blue-700 dark:text-white px-2 py-1.5"
+                                      ? "bg-blue-600 !bg-blue-600 text-white !text-white font-medium dark:text-white" // Force blue background and white text to remain on hover for active items
+                                      : "text-gray-500 hover:text-blue-700 dark:text-white"
                                     }
                                   `}
                                 >
@@ -253,20 +242,20 @@ export function AppSidebar() {
                     <SidebarMenuButton asChild>
                       <a
                         href={item.url}
-                        className={`flex items-center gap-2 rounded transition-colors
+                        className={`flex items-center gap-2 px-2 py-2 rounded-md transition-colors
                           ${pathname === item.url
-                            ? "bg-blue-600 !bg-blue-600 text-white !text-white dark:text-white px-2 py-2 "
-                            : "text-gray-500 hover:text-blue-700 dark:text-white px-2 py-2"
+                            ? "bg-blue-600 !bg-blue-600 text-white !text-white dark:text-white" // Force blue background and white text to remain on hover for active items
+                            : "text-gray-500 hover:text-blue-700 dark:text-white"
                           }
                         `}
                       >
                         <item.icon
-                          className={`w-5 h-5 dark:text-white ${pathname === item.url ? "text-white" : "text-gray-500"
+                          className={`w-4 h-4 dark:text-white ${pathname === item.url ? "text-white" : "text-gray-500"
                             }`}
                         />
 
                         <span
-                          className={`text-[15px] dark:text-white ${pathname === item.url ? "text-white" : "text-gray-500"
+                          className={`text-[14px] dark:text-white ${pathname === item.url ? "text-white" : "text-gray-500"
                             }`}
                         >
                           {item.title}

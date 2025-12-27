@@ -17,7 +17,7 @@ export default function EditProfile() {
   };
 
   return (
-    <div className="bg-white p-8 rounded-2xl shadow-sm border w-full">
+    <div className="bg-white dark:bg-[#161c24] p-8 rounded-2xl shadow-sm border w-full">
       <h1 className="text-2xl font-semibold mb-6">Edit Profile</h1>
 
       {/* Tabs */}
@@ -49,7 +49,7 @@ export default function EditProfile() {
         <div className="space-y-6">
           {/* Avatar upload */}
           <div>
-            <label className="text-sm font-medium text-gray-700">Avatar</label>
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Image</label>
 
             <div className="mt-3 flex items-center gap-4">
               {/* Upload Box */}
@@ -72,7 +72,7 @@ export default function EditProfile() {
                   />
                   <button
                     onClick={() => setAvatar(null)}
-                    className="absolute top-1 right-1 bg-white p-1 rounded-full shadow hover:bg-gray-100"
+                    className="absolute top-1 right-1 bg-white p-1 rounded-full shadow "
                   >
                     <X className="w-4 h-4 text-gray-600" />
                   </button>
@@ -87,7 +87,7 @@ export default function EditProfile() {
 
           {/* Full Name */}
           <div>
-            <label className="text-sm font-medium text-gray-700">
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Full Name*
             </label>
             <input
@@ -99,7 +99,7 @@ export default function EditProfile() {
 
           {/* Email */}
           <div>
-            <label className="text-sm font-medium text-gray-700">Email*</label>
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Email*</label>
             <input
               type="email"
             //   defaultValue="admin@example.com"
@@ -109,7 +109,7 @@ export default function EditProfile() {
 
           {/* Phone */}
           <div>
-            <label className="text-sm font-medium text-gray-700">Phone*</label>
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Phone*</label>
             <div className="mt-1 flex">
               <select className="border rounded-l-lg px-3 text-sm">
                 <option>+1</option>
@@ -139,7 +139,7 @@ export default function EditProfile() {
         <div className="space-y-6">
           {/* Current Password */}
           <div>
-            <label className="text-sm font-medium text-gray-700">
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Current Password
             </label>
             <input
@@ -151,7 +151,7 @@ export default function EditProfile() {
 
           {/* New Password */}
           <div>
-            <label className="text-sm font-medium text-gray-700">
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
               New Password
             </label>
             <input
@@ -163,7 +163,7 @@ export default function EditProfile() {
 
           {/* Confirm Password */}
           <div>
-            <label className="text-sm font-medium text-gray-700">
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Confirm Password
             </label>
             <input
@@ -175,7 +175,7 @@ export default function EditProfile() {
 
           {/* SAVE BUTTON */}
           <div className="flex justify-end">
-            <button className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-green-700">
+            <button className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">
               <Save className="w-4 h-4" />
               Save
             </button>
