@@ -242,7 +242,7 @@ export default function MapZoneCreator() {
       </div>
 
       {/* Map Panel */}
-      <div className="bg-white rounded-lg border overflow-hidden relative">
+      <div className="bg-white  dark:bg-[#161c24] rounded-lg border dark:border-gray-700 overflow-hidden relative">
         <div className="absolute top-4 right-4 z-10 bg-white rounded-lg shadow-lg p-2 space-y-2">
           <button
             onClick={clearAll}
