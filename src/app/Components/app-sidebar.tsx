@@ -97,7 +97,6 @@ const items =  [
     icon: CarFront,
     children: [
       { title: "List", url: "/driver/list" },
-      { title: "Pending Verification", url: "/driver/pending-verification" },
       { title: "Settings", url: "/driver/settings" },
     ],
   },
