@@ -45,7 +45,7 @@ import {
 
 import { FiChevronDown, FiSettings } from "react-icons/fi";
 
-const items = [
+const items =  [
   { title: "Overview", url: "/", icon: LayoutDashboard },
 
   {
@@ -82,7 +82,15 @@ const items = [
       { title: "Roles and Permissions", url: "/users/roles-permissions" },
     ],
   },
-
+  {
+    title: "Riders",
+    dropdown: true,
+    icon: Users,
+    children: [
+      { title: "All Riders", url: "/riders" },
+      { title: "Add Riders", url: "/riders/add-riders" },
+    ],
+  },
   {
     title: "Drivers",
     dropdown: true,
@@ -109,16 +117,17 @@ const items = [
     ],
   },
   {title: "Coupons",icon: ReceiptText,url: "/Coupons"},
-  {
-    title: "Riders",
+
+  { title: "Surge Price", url: "/surge-price", icon: Tag },
+    {
+    title: "Push Notification",
     dropdown: true,
-    icon: Users,
+    icon: Bell,
     children: [
-      { title: "All Riders", url: "/riders" },
-      { title: "Add Riders", url: "/riders/add-riders" },
+      { title: "All Push Notification", url: "/push-notification" },
+      { title: "Send Push Notification", url: "/push-notification/create" },
     ],
   },
-  { title: "Surge Price", url: "/surge-price", icon: Tag },
   {
     title: "Book trip",
     dropdown: true,
@@ -128,15 +137,7 @@ const items = [
       { title: "Booking History", url: "/book-trip/history" },
     ],
   },
-  {
-    title: "Push Notification",
-    dropdown: true,
-    icon: Bell,
-    children: [
-      { title: "All Push Notification", url: "/push-notification" },
-      { title: "Send Push Notification", url: "/push-notification/create" },
-    ],
-  },
+
 
   //{ title: "Orders", url: "/orders", icon: BookOpenText },
   // { title: "Customers", url: "/customers", icon: CircleUser },
@@ -164,11 +165,7 @@ const items = [
     ],
   },
 
-
  // { title: "Support", url: "/support", icon: Headphones },
-
-
-
 
   // {
   //   title: "Management",
@@ -195,7 +192,6 @@ const items = [
     ], icon: FiSettings
   },
 ];
-
 export function AppSidebar() {
   const pathname = usePathname();
 
