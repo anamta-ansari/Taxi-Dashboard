@@ -58,7 +58,7 @@ export default function Payment() {
     {
       id: 'applepay',
       name: 'Apple Pay',
-      logo: '/assets/apple.png',
+      logo: '/assets/apple2.png',
       badge: 'Apple Pay',
       processingFee: '2.9% + $0.30',
       credentials: [

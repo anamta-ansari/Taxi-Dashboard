@@ -39,6 +39,7 @@ import {
   Bell,
   CalendarCheck,
   Users,
+  Flame
 
 } from "lucide-react";
 
@@ -59,7 +60,7 @@ const items = [
     {
     title: "Rides",
     dropdown: true,
-    icon: Users,
+    icon: Map,
     children: [
       { title: "All Rides", url: "/rides/all-rides" },
       { title: "All Rides Requests", url: "/rides/all-rides-requests" },
@@ -96,8 +97,17 @@ const items = [
   //{ title: "Fleets", url: "/fleets", icon: Building },
   { title: "Zones", url: "/zones", icon: LandPlot },
   { title: "Preference", url: "/preferences", icon: Settings2 },
-  { title: "Heat Map", url: "/heatmap", icon: Map },
-  { title: "SOS", url: "/sos", icon: Megaphone },
+  { title: "Heat Map", url: "/heatmap", icon: Flame },
+  {
+    title: "SOS",
+    dropdown: true,
+    icon: Megaphone,
+    children: [
+      { title: "SOS", url: "/sos" },
+      { title: "Add SOS", url: "/sos/create" },
+      { title: "SOS Alerts", url: "/sos-alerts" },
+    ],
+  },
   {title: "Coupons",icon: ReceiptText,url: "/Coupons"},
   {
     title: "Riders",
@@ -181,6 +191,7 @@ const items = [
       { title: "Languages", url: "/general-settings/languages" },
       { title: "Currencies", url: "/general-settings/currencies" },
       { title: "Taxes", url: "/general-settings/taxes" },
+      { title: "Payment Methods", url: "/general-settings/payment-method" },
     ], icon: FiSettings
   },
 ];
