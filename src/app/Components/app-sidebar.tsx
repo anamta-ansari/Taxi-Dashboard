@@ -195,7 +195,7 @@ export function AppSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar className="lg:fixed bg-white lg:top-20 lg:left-0 lg:h-[calc(100vh-5rem)] lg:w-65 w-full dark:bg-black shadow-none lg:shadow ">
+    <Sidebar className="lg:fixed bg-white lg:top-20 lg:left-0 lg:h-[calc(100vh-5rem)] lg:w-65 w-full dark:bg-[#161c24]  shadow-none lg:shadow ">
       <SidebarHeader />
 
       <SidebarContent className="[&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full dark:[&::-webkit-scrollbar-thumb]:bg-[#161c24] dark:[&::-webkit-scrollbar-thumb]:border dark:[&::-webkit-scrollbar-thumb]:border-gray-500">
