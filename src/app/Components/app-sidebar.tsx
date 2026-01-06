@@ -45,7 +45,7 @@ import {
 
 import { FiChevronDown, FiSettings } from "react-icons/fi";
 
-const items = [
+const items =  [
   { title: "Overview", url: "/", icon: LayoutDashboard },
 
   {
@@ -195,7 +195,6 @@ const items = [
     ], icon: FiSettings
   },
 ];
-
 export function AppSidebar() {
   const pathname = usePathname();
 

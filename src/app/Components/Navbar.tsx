@@ -36,7 +36,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
  
   // const toggleTheme = () => setIsDark(!isDark);
 
-  const menuItems = [
+  const menuItems =  [
   { title: "Overview", url: "/", icon: LayoutDashboard },
 
   {
@@ -186,7 +186,6 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
     ], icon: FiSettings
   },
 ];
-
 
   return (
     <>
