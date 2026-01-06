@@ -49,9 +49,6 @@ export default function SOSALERTS() {
           <div className="mb-4 flex items-center justify-between w-full">
             <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-300">SOS Alerts</h1>
 
-            <Link href="/riders/add-riders">
-              <Button variant="primary">+ Add New</Button>
-            </Link>
           </div>
 
 
