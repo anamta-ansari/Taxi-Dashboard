@@ -126,7 +126,7 @@ export default function EditProfile() {
 
           {/* SAVE BUTTON */}
           <div className="flex justify-end">
-            <button className="flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700">
+            <button className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded hover:bg-green-700">
               <Save className="w-4 h-4" />
               Save
             </button>
@@ -175,7 +175,7 @@ export default function EditProfile() {
 
           {/* SAVE BUTTON */}
           <div className="flex justify-end">
-            <button className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">
+            <button className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700">
               <Save className="w-4 h-4" />
               Save
             </button>
