@@ -808,7 +808,7 @@ export default function AddDriver() {
                 <button
                   type="button"
                   onClick={handlePrevious}
-                  className="px-6 py-2 bg-white border border-blue-500 text-blue-600 rounded font-medium hover:bg-blue-50 transition-colors"
+                  className="px-6 py-2 bg-white dark:bg-[#161c24] border border-blue-500 text-blue-600 rounded font-medium hover:bg-blue-50 transition-colors"
                 >
                   Previous
                 </button>
