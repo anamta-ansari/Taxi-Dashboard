@@ -9,7 +9,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 w-auto">
+    <div className="flex flex-col md:flex-row min-h-screen  bg-gray-100 w-auto">
   {/* LEFT SIDE */}
   <div className="w-full md:w-1/2 flex flex-col justify-center items-center bg-gray-50 border-b md:border-b-0 md:border-r border-gray-200">
     <Image
@@ -35,9 +35,9 @@ export default function Login() {
   </div>
 
   {/* RIGHT SIDE */}
-  <div className="w-full md:w-1/2 flex flex-col justify-center items-center bg-white px-8 md:px-16">
+  <div className="w-full md:w-1/2 flex pt-5 flex-col justify-center items-center bg-white px-8 md:px-16">
     <h2 className="text-2xl text-gray-700 font-semibold mb-2 text-center">
-      Welcome to BetterSuite Live Demo!
+      Welcome to Five Stars Galway Taxis
     </h2>
 
     <p className="text-gray-500 mb-6 text-center">

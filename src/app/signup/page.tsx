@@ -36,13 +36,13 @@ export default function Signup() {
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center items-center bg-white px-8 md:px-16">
+      <div className="w-full md:w-1/2 pt-10 pb-10 flex flex-col justify-center items-center bg-white px-8 md:px-16">
         <h2 className="text-2xl text-gray-700 font-semibold mb-2 text-center">
           Create Your Account
         </h2>
 
         <p className="text-gray-500 mb-6 text-center">
-          Get started with BetterSuite in seconds
+          Get started with Five Stars Galway Taxis in seconds
         </p>
 
         <form className="w-full max-w-md">
