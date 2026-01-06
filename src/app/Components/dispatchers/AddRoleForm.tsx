@@ -361,15 +361,13 @@ export const AddRoleForm = () => {
             variant="success"
             onClick={() => handleSave(false)}
             className="flex items-center justify-center gap-2text-center bg-blue-600 hover:bg-blue-700"
-          >
-            <span>💾</span> Save
+          > Save
           </Button>
           <Button
             variant="success"
             onClick={() => handleSave(true)}
             className="flex items-center justify-center gap-2 text-center bg-blue-600 hover:bg-blue-700"
-          >
-            <span>⬅</span> Save and Exit
+          > Save and Exit
           </Button>
         </div>
       </div>

@@ -72,7 +72,7 @@ export default function SOSALERTS() {
           </div>
         </div>
 
-        {/* TABLE */}
+    
         <div className="bg-white dark:bg-[#161c24] rounded-lg shadow">
           <div className="flex items-center gap-4 px-1 py-3 border-b">
             <select className="border dark:bg-[#161c24] rounded px-1 py-1 text-sm">

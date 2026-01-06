@@ -73,24 +73,35 @@ const items = [
     ],
   },
   {
-    title: "Users",
+    title: "Dispatcher",
     dropdown: true,
     icon: User,
     children: [
-      { title: "All Users", url: "/users/all-users" },
-      { title: "Add Users", url: "/users/add-user" },
-      { title: "Roles and Permissions", url: "/users/roles-permissions" },
+      { title: "All Dispatcher", url: "/dispatcher/all-dispatchers" },
+      { title: "Add Dispatcher", url: "/dispatcher/add-dispatcher" },
+      { title: "Roles and Permissions", url: "/dispatcher/roles-permissions" },
     ],
   },
-
+  {
+    title: "Riders",
+    dropdown: true,
+    icon: Users,
+    children: [
+      { title: "All Riders", url: "/riders" },
+      { title: "Add Riders", url: "/riders/add-riders" },
+    ],
+  },
   {
     title: "Drivers",
     dropdown: true,
     icon: CarFront,
     children: [
-      { title: "List", url: "/driver/list" },
-      { title: "Pending Verification", url: "/driver/pending-verification" },
-      { title: "Settings", url: "/driver/settings" },
+      { title: "Add Driver", url: "/driver/add-driver" },
+      { title: "Drivers Documents", url: "/driver/drivers-documents" },
+      { title: "Driver Wallet", url: "/driver/drivers-wallet" },
+      { title: "Drivers List", url: "/driver/list" },
+      // { title: "Pending Verification", url: "/driver/pending-verification" },
+      { title: "Drivers Settings", url: "/driver/settings" },
     ],
   },
   //{ title: "Dispatcher", url: "/dispatcher", icon: Rocket },
@@ -109,16 +120,17 @@ const items = [
     ],
   },
   {title: "Coupons",icon: ReceiptText,url: "/Coupons"},
-  {
-    title: "Riders",
+
+  { title: "Surge Price", url: "/surge-price", icon: Tag },
+    {
+    title: "Push Notification",
     dropdown: true,
-    icon: Users,
+    icon: Bell,
     children: [
-      { title: "All Riders", url: "/riders" },
-      { title: "Add Riders", url: "/riders/add-riders" },
+      { title: "All Push Notification", url: "/push-notification" },
+      { title: "Send Push Notification", url: "/push-notification/create" },
     ],
   },
-  { title: "Surge Price", url: "/surge-price", icon: Tag },
   {
     title: "Book trip",
     dropdown: true,
@@ -128,15 +140,7 @@ const items = [
       { title: "Booking History", url: "/book-trip/history" },
     ],
   },
-  {
-    title: "Push Notification",
-    dropdown: true,
-    icon: Bell,
-    children: [
-      { title: "All Push Notification", url: "/push-notification" },
-      { title: "Send Push Notification", url: "/push-notification/create" },
-    ],
-  },
+
 
   //{ title: "Orders", url: "/orders", icon: BookOpenText },
   // { title: "Customers", url: "/customers", icon: CircleUser },
@@ -164,11 +168,7 @@ const items = [
     ],
   },
 
-
  // { title: "Support", url: "/support", icon: Headphones },
-
-
-
 
   // {
   //   title: "Management",
@@ -200,7 +200,7 @@ export function AppSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar className="lg:fixed bg-white lg:top-20 lg:left-0 lg:h-[calc(100vh-5rem)] lg:w-65 w-full dark:bg-black shadow-none lg:shadow ">
+    <Sidebar className="lg:fixed bg-white dark:bg-[#161c24]  lg:top-20 lg:left-0 lg:h-[calc(100vh-5rem)] lg:w-65 w-full  shadow-none lg:shadow ">
       <SidebarHeader />
 
       <SidebarContent className="[&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full dark:[&::-webkit-scrollbar-thumb]:bg-[#161c24] dark:[&::-webkit-scrollbar-thumb]:border dark:[&::-webkit-scrollbar-thumb]:border-gray-500">

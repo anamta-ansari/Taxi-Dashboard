@@ -1,4 +1,4 @@
-import UserRolesComponent from "../../Components/users/UserRoles"
+import UserRolesComponent from "../../Components/dispatchers/UserRoles"
 export default function UserRoles(){
     return(
         <>

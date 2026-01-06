@@ -16,7 +16,7 @@ function CreatePreferenceContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const editId = searchParams.get('id');
-  
+
   const [formData, setFormData] = useState({
     name: '',
     image: '',
@@ -69,14 +69,14 @@ function CreatePreferenceContent() {
 
     if (isEditing && editId) {
       // Update existing preference
-      preferences = preferences.map(p => 
+      preferences = preferences.map(p =>
         p.id === parseInt(editId)
           ? {
-              ...p,
-              name: formData.name,
-              image: imagePreview || p.image,
-              status: formData.status
-            }
+            ...p,
+            name: formData.name,
+            image: imagePreview || p.image,
+            status: formData.status
+          }
           : p
       );
     } else {
@@ -118,7 +118,7 @@ function CreatePreferenceContent() {
             <h1 className="text-2xl font-semibold text-gray-800 mb-8 dark:text-gray-300">
               {isEditing ? 'Edit Preference ' : 'Add Preference'}
             </h1>
-            
+
             <div className="space-y-6">
               {/* Image Upload */}
               <div className="flex items-start gap-4">
@@ -140,10 +140,10 @@ function CreatePreferenceContent() {
                     >
                       {imagePreview ? (
                         typeof imagePreview === 'string' && imagePreview.startsWith('data:') ? (
-                          <img 
-                            src={imagePreview} 
-                            alt="Preview" 
-                            className="w-full h-full object-cover rounded-lg" 
+                          <img
+                            src={imagePreview}
+                            alt="Preview"
+                            className="w-full h-full object-cover rounded-lg"
                           />
                         ) : (
                           <div className="text-4xl">{imagePreview}</div>
@@ -178,15 +178,13 @@ function CreatePreferenceContent() {
                 <label className="text-gray-700 font-medium w-32 dark:text-gray-300">Status</label>
                 <button
                   onClick={() => setFormData({ ...formData, status: !formData.status })}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                    formData.status ? 'bg-blue-500' : 'bg-gray-300'
-                  }`}
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${formData.status ? 'bg-blue-500' : 'bg-gray-300'
+                    }`}
                   type="button"
                 >
                   <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                      formData.status ? 'translate-x-6' : 'translate-x-1'
-                    }`}
+                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${formData.status ? 'translate-x-6' : 'translate-x-1'
+                      }`}
                   />
                 </button>
               </div>

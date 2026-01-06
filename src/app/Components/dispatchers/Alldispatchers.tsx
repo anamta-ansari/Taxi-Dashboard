@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { User } from '@/types/user';
-import { Button } from '../../Components/ui/Button';
+import { Button } from '../ui/Button';
 import { CircleUser } from "lucide-react";
 import router from 'next/router';
 
@@ -35,36 +35,18 @@ export default function ALLUSERS() {
           <div className="mb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
 
             <div className="flex justify-between gap-5 ">
-              <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-300">Users</h1>
+              <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-300">Dispatcher</h1>
 
               <Button
                 variant="primary"
-                onClick={() => router.push('/users/add-user')}
+                onClick={() => router.push('/dispatcher/add-dispatcher')}
                 className="flex items-center gap-2 "
               >
                 <span>+</span> Add New
               </Button>
             </div>
 
-            <div className="flex gap-2 sm:gap-2 sm:items-center sm:flex-row flex-row sm:justify-end justify-between">
-
-
-              {/* <Button
-                variant="primary"
-                onClick={() => router.push('/users/add-user')}
-                className="hidden sm:flex items-center gap-2"
-              >
-                <span>+</span> Add New
-              </Button> */}
-
-              {/* <Button variant="secondary">
-                <span>↓</span> Export
-              </Button>
-
-              <Button variant="secondary">
-                <span>↑</span> Import
-              </Button> */}
-            </div>
+           
           </div>
 
 

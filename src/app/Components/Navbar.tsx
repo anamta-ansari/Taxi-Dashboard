@@ -64,42 +64,15 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
     ],
   },
   {
-    title: "Users",
+    title: "Dispatcher",
     dropdown: true,
     icon: User,
     children: [
-      { title: "All Users", url: "/users/all-users" },
-      { title: "Add Users", url: "/users/add-user" },
-      { title: "Roles and Permissions", url: "/users/roles-permissions" },
+      { title: "All Dispatcher", url: "/dispatcher/all-dispatchers" },
+      { title: "Add Dispatcher", url: "/dispatcher/add-dispatcher" },
+      { title: "Roles and Permissions", url: "/dispatcher/roles-permissions" },
     ],
   },
-
-  {
-    title: "Drivers",
-    dropdown: true,
-    icon: CarFront,
-    children: [
-      { title: "List", url: "/driver/list" },
-      // { title: "Pending Verification", url: "/driver/pending-verification" },
-      { title: "Settings", url: "/driver/settings" },
-    ],
-  },
-  //{ title: "Dispatcher", url: "/dispatcher", icon: Rocket },
-  //{ title: "Fleets", url: "/fleets", icon: Building },
-  { title: "Zones", url: "/zones", icon: LandPlot },
-  { title: "Preference", url: "/preferences", icon: Settings2 },
-  { title: "Heat Map", url: "/heatmap", icon: Flame },
-    {
-    title: "SOS",
-    dropdown: true,
-    icon: Megaphone,
-    children: [
-      { title: "SOS", url: "/sos" },
-      { title: "SOS Alerts", url: "/sos-alerts" },
-    ],
-  },
-
-  {title: "Coupons",icon: ReceiptText,url: "/Coupons"},
   {
     title: "Riders",
     dropdown: true,
@@ -109,7 +82,46 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
       { title: "Add Riders", url: "/riders/add-riders" },
     ],
   },
+  {
+    title: "Drivers",
+    dropdown: true,
+    icon: CarFront,
+    children: [
+      { title: "Add Driver", url: "/driver/add-driver" },
+      { title: "Drivers Documents", url: "/driver/drivers-documents" },
+      { title: "Driver Wallet", url: "/driver/drivers-wallet" },
+      { title: "Drivers List", url: "/driver/list" },
+      // { title: "Pending Verification", url: "/driver/pending-verification" },
+      { title: "Drivers Settings", url: "/driver/settings" },
+    ],
+  },
+  //{ title: "Dispatcher", url: "/dispatcher", icon: Rocket },
+  //{ title: "Fleets", url: "/fleets", icon: Building },
+  { title: "Zones", url: "/zones", icon: LandPlot },
+  { title: "Preference", url: "/preferences", icon: Settings2 },
+  { title: "Heat Map", url: "/heatmap", icon: Flame },
+  {
+    title: "SOS",
+    dropdown: true,
+    icon: Megaphone,
+    children: [
+      { title: "SOS", url: "/sos" },
+      { title: "Add SOS", url: "/sos/create" },
+      { title: "SOS Alerts", url: "/sos-alerts" },
+    ],
+  },
+  {title: "Coupons",icon: ReceiptText,url: "/Coupons"},
+
   { title: "Surge Price", url: "/surge-price", icon: Tag },
+    {
+    title: "Push Notification",
+    dropdown: true,
+    icon: Bell,
+    children: [
+      { title: "All Push Notification", url: "/push-notification" },
+      { title: "Send Push Notification", url: "/push-notification/create" },
+    ],
+  },
   {
     title: "Book trip",
     dropdown: true,
@@ -119,15 +131,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
       { title: "Booking History", url: "/book-trip/history" },
     ],
   },
-  {
-    title: "Push Notification",
-    dropdown: true,
-    icon: Bell,
-    children: [
-      { title: "All Push Notification", url: "/push-notification" },
-      { title: "Send Push Notification", url: "/push-notification/create" },
-    ],
-  },
+
 
   //{ title: "Orders", url: "/orders", icon: BookOpenText },
   // { title: "Customers", url: "/customers", icon: CircleUser },
@@ -155,11 +159,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
     ],
   },
 
-
  // { title: "Support", url: "/support", icon: Headphones },
-
-
-
 
   // {
   //   title: "Management",
@@ -182,7 +182,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
       { title: "Languages", url: "/general-settings/languages" },
       { title: "Currencies", url: "/general-settings/currencies" },
       { title: "Taxes", url: "/general-settings/taxes" },
-      { title: "Payment Method", url: "/general-settings/payment-method" },
+      { title: "Payment Methods", url: "/general-settings/payment-method" },
     ], icon: FiSettings
   },
 ];

@@ -67,7 +67,7 @@ export default function UserRoles() {
             <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-300">Roles</h1>
             <button
               className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-              onClick={() => router.push('/users/roles-permissions/create')}
+              onClick={() => router.push('/dispatcher/roles-permissions/create')}
             >
               <span>+</span>
               Add New

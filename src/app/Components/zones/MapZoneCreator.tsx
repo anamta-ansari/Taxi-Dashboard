@@ -208,7 +208,7 @@ export default function MapZoneCreator() {
             <label className="block dark:text-gray-300 text-sm font-medium text-gray-700 mb-2">
               Points Added: {points.length}
             </label>
-            <div className="max-h-40 dark:bg-[#161c24] dark:text-gray-300 overflow-y-auto bg-gray-50 rounded-lg p-2 space-y-1">
+            <div className="max-h-40 dark:bg-[#161c24] dark:text-gray-300 overflow-y-auto bg-gray-50 dark:bg-[#161c24] rounded-lg p-2 space-y-1">
               {points.map((p, i) => (
                 <div key={i} className="flex justify-between items-center text-xs bg-white dark:bg-[#161c24] dark:text-gray-300  dark:border-gray-500 border px-2 py-1 rounded">
                   <span>{i + 1}. ({p.lat.toFixed(5)}, {p.lng.toFixed(5)})</span>
@@ -242,7 +242,7 @@ export default function MapZoneCreator() {
       </div>
 
       {/* Map Panel */}
-      <div className="bg-white rounded-lg border overflow-hidden relative">
+      <div className="bg-white dark:bg-[#161c24] rounded-lg border dark:border-gray-500 overflow-hidden relative">
         <div className="absolute top-4 right-4 z-10 bg-white rounded-lg shadow-lg p-2 space-y-2">
           <button
             onClick={clearAll}
