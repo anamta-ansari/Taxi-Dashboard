@@ -203,15 +203,13 @@ export const AddUserForm = () => {
             variant="success"
             onClick={() => handleSave(false)}
             className="flex items-center gap-2"
-          >
-            <span>💾</span> Save
+          > Save
           </Button>
           <Button
             variant="success"
             onClick={() => handleSave(true)}
             className="flex items-center gap-2"
-          >
-            <span>⬅</span> Save and Exit
+          > Save and Exit
           </Button>
         </div>
       </div>
