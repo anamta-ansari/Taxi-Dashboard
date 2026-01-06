@@ -203,7 +203,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
           <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300" />
         )}
       </button>
-      <h1 className="hidden lg:block text-2xl font-bold text-gray-800 whitespace-nowrap dark:text-white">BetterSuite</h1>
+      <h1 className="hidden lg:block text-2xl font-bold text-gray-800 whitespace-nowrap dark:text-white">Five Stars Galway Taxis</h1>
     </div>
 
     {/* Right Side */}
